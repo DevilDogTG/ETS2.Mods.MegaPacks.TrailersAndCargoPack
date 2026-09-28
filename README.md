@@ -1,0 +1,30 @@
+# MegaPack: Trailers & Cargo
+
+Personal-use ETS2 mod that merges Jazzycat's trailer and cargo packs (Trailers & cargo, Military cargo,
+Railway cargo) into one conflict-resolved set: company trailers, cargo jobs and AI traffic trailers, with
+cargo pay balanced to follow [DriveDogs Economy](https://github.com/DevilDogTG/ETS2Mods.DriveDogs.Economy)'s
+rules. This repo contains **configuration only**. Source content lives outside git.
+See [ADR-0001](docs/adr/ADR-0001-one-megapack-requires-economy.md).
+
+## Structure
+- `megapack.yaml`: package identity, `source_root`, excludes, part size caps
+- `sources.yaml`: every origin mod: author, version, origin URL, layer, overrides
+- `lock/`: generated per-source path and hash lists (commit them; `git diff` shows upstream changes)
+- `src/manifest.sii`, `src/description.txt`: templates for each output part's manifest
+- `output/local/`: built `.scs` parts (gitignored)
+
+## Building
+Uses the `ets2-mod-developer` profile's `megapack` skill:
+1. `extract-reference` for each source not yet extracted.
+2. `megapack lock` refreshes `lock/` and reports collisions.
+3. `megapack check` reports stale locks and unresolved collisions.
+4. `megapack build` writes `output/local/<name>_def.scs` and `<name>_partN.scs` (stable names, no
+   version suffix).
+
+## Installing
+Copy **all** `.scs` parts from `output/local/` into the ETS2 `mod` folder and enable every part. File
+names stay the same between releases, so replacing the files is enough. Order between the parts does not
+matter.
+
+Requires DriveDogs Economy. Do not load the original Jazzycat trailer/cargo packs (including the Overweight
+pack and the traffic add-ons): they are built in. Built for ETS2 1.61.

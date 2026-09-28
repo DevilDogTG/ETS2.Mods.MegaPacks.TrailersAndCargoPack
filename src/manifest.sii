@@ -1,0 +1,15 @@
+SiiNunit
+{
+mod_package : .package_name
+{
+	package_version: "{{version}}"
+	display_name: "{{display_name}}{{part_label}}"
+	author: "DevilDogTG"
+	category[]: "trailer"
+	category[]: "cargo_pack"
+	icon: "cover.jpg"
+	description_file: "description.txt"
+
+	mp_mod_optional: true
+}
+}

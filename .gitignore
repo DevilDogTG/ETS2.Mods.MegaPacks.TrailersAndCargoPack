@@ -1,0 +1,13 @@
+# build output — never commit
+output/
+build/
+
+# optional junctions into the extracted-reference root
+sources/
+
+# python
+__pycache__/
+*.pyc
+
+# in-game test logs (game.log copies from test sessions)
+logs/
