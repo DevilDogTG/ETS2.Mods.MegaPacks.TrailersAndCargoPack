@@ -1,0 +1,39 @@
+# MegaPack build configuration — read by the ets2-mod-developer `megapack` skill.
+# See docs/adr/ADR-0001-one-megapack-requires-economy.md for why trailers, cargo and traffic ship together.
+schema: 1
+
+package:
+  name: drivedog_megapack_trailers_cargo  # archive base name: <name>_def.scs, <name>_partN.scs
+  display_name: "MegaPack: Trailers & Cargo"
+  version: "0.1.0"                       # megapack's own version, independent of sources
+  versioned_filenames: false             # stable names: the mod manager keeps the parts enabled between releases
+  author: "DevilDogTG"
+  game: ets2                             # ets2 | ats — sources must be for this game
+  manifest_template: src/manifest.sii    # per-part manifests are generated from this
+  description_template: src/description.txt
+
+# Where the original archives live (sources.yaml `archives` are relative to it). "@trailer_cargo_packs" is this
+# machine's folder, set under `## MegaPack Roots` in the profile host file hosts/<hostname>.local.md.
+source_root: "@trailer_cargo_packs"
+
+# `megapack updates` scans source_root for newer archive versions and untracked archives.
+scan:
+  ignore:                                # archives under source_root the megapack deliberately does not use
+    - "_archived/*"                      # superseded versions, kept until the maintainer deletes them
+    - "overweight_trailers_and_cargo_*"  # subset of the main pack (ADR-0001)
+    - "*_rus.scs"                        # Military with Russian cargo names; we use _eng
+
+# Paths dropped from every source before merging (patterns without '/' match archive-root files only).
+exclude:
+  - "manifest.sii"
+  - "*.txt"
+  - "*.jpg"
+  - "*.png"
+
+parts:
+  # Only what the cargo pay rebalance edits goes into <name>_def.scs; company links (~136k files) and all other
+  # defs travel with their source's asset parts, so no archive exceeds the 60k-entry limit.
+  def_globs: ["def/cargo/**", "def/cargo.*.sii"]
+  max_part_bytes: 3221225472             # 3 GiB — a 2.98 GB HashFS part passed in game (AiTrafficPack probe)
+  max_part_files: 60000                  # per-archive file limit reported by the engine (files + dirs)
+  pack_margin: 0.9                       # fill parts to 90% of max_part_bytes by estimate; real size verified after packing
