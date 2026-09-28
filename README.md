@@ -20,13 +20,15 @@ Uses the `ets2-mod-developer` profile's `megapack` skill:
 1. `extract-reference` for each source not yet extracted.
 2. `megapack lock` refreshes `lock/` and reports collisions.
 3. `megapack check` reports stale locks and unresolved collisions.
-4. `megapack build` writes `output/local/<name>_def.scs` and `<name>_partN.scs` (stable names, no
-   version suffix).
+4. `megapack build` writes `output/local/<name>_partN.scs` (stable names, no version suffix; 3 parts today).
+   Needs the base game of `base_game.version` extracted (`extract-reference`, category `base`):
+   `exclude_unknown_companies` drops cargo links to companies it does not have (map-mod companies).
 
 ## Installing
 Copy **all** `.scs` parts from `output/local/` into the ETS2 `mod` folder and enable every part. File
 names stay the same between releases, so replacing the files is enough. Order between the parts does not
 matter.
 
-Requires DriveDogs Economy. Do not load the original Jazzycat trailer/cargo packs (including the Overweight
+Requires DriveDogs Economy. Built without map-mod support: Jazzycat cargo appears only at companies of the base
+game and its DLCs, not at ProMods/RusMap companies. Do not load the original Jazzycat trailer/cargo packs (including the Overweight
 pack and the traffic add-ons): they are built in. Built for ETS2 1.61.
