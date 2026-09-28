@@ -1,7 +1,7 @@
 [orange]{{display_name}}{{part_label}}
 
 [normal]Personal merge of Jazzycat's trailer and cargo packs (Trailers & cargo, Military cargo, Railway cargo) into one resolved set: company trailers, cargo jobs and AI traffic trailers, with cargo pay balanced to match DriveDogs Economy for ETS2 1.61.
-[red]Enable ALL parts ({{part_count}}) together. Order between parts does not matter.
+[red]Enable ALL parts ({{part_count}}) of this version together. Order between parts does not matter.
 [red]Requires DriveDogs Economy.
 [red]Do not load the original Jazzycat trailer/cargo packs (including the Overweight pack and the traffic add-ons): they are built in.
 --------------------
