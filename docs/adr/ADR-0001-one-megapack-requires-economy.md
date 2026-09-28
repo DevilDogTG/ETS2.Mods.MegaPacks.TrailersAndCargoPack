@@ -45,7 +45,7 @@ Overweight 11.10.5, Military 6.8.7, Railway 4.6.7) found:
 Option A. Sources: main Trailers & cargo pack, Military (English cargo names), Military traffic add-on and
 Railway. AI traffic trailers stay in. The Overweight pack is dropped as a duplicate of the main pack. The pack
 requires DriveDogs Economy, and its cargo pay rebalance reads Economy's rules from the Economy repo
-(recorded in a later ADR). Archive names are stable (no version suffix) and every part carries the pack
+(recorded in a later ADR). Archive names carry the version (`_v<version>`) and every part carries the pack
 version, as in the AI Traffic megapack.
 
 ## Consequences
