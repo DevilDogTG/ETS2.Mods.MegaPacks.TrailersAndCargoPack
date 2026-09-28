@@ -1,0 +1,90 @@
+# Hand-reviewed fixes of Jazzycat data bugs (ADR-0002), in megapack base_edits format:
+#   {path: {unit name: {set: {key: value}}}}
+# `tools/cargo_rebalance.py generate` applies these before computing pay, then writes them together with the
+# rate changes into cargo/edits.yaml (the file megapack.yaml `base_edits` reads). Edit this file, not edits.yaml.
+#
+# Rule: keep the cargo's real weight and fix whichever number is wrong. A trailer limit is raised only to fit
+# the cargo's full load (limit = chassis + body + units x mass per unit, rounded up to 10 kg), on that cargo's
+# own trailer_def, and only where the same trailer carries at least that load in another Jazzycat cargo
+# (edk300: maintainer's call, 2026-09-28).
+
+# Decimal slip: 2,026.9 kg per unit = 203 t of bananas per trailer; sister cargo banan_j1 is 215.1 kg/unit.
+def/cargo/banan_j2.sui:
+  cargo.banan_j2:
+    set:
+      mass: 202.69
+
+# The cargo asks for body _gooso40ri_c, but its only trailer_def offers _flowersj1: never offered as a job.
+def/cargo/flowers_j1.sui:
+  cargo.flowers_j1:
+    set:
+      body_types[]: [_flowersj1]
+
+# ...and its trailer: limit 9,370 kg on a 6,000 kg chassis = 3,370 kg (15 units). The same Ekeri trailer carries
+# 21-24 t in other cargoes (9,370 is likely 29,370). Full load 100 x 218.5 = 21,850 kg.
+def/cargo/flowers_j1/ekeri_j11.sii:
+  trailer_def.flowers_j1.ekeri_j11:
+    set:
+      gross_trailer_weight_limit: 27850
+
+# Limit 7,020 kg on a 6,600 kg chassis = 420 kg payload (5 forklift units, 1 EUR/km). The same Kögel trailer
+# carries 22.6 t (median) to 52 t in other cargoes. Full load 100 x 83.2 = 8,320 kg.
+def/cargo/forklift1j/kogel_bort2j.sii:
+  trailer_def.forklift1j.kogel_bort2j:
+    set:
+      gross_trailer_weight_limit: 14920
+
+# M60 tank, 100 x 550 = 55 t, on a trailer limited to 25.1 t (45 units). Same trailer carries up to 74 t.
+def/cargo/m60j/over_m3mw.sii:
+  trailer_def.m60j.over_m3mw:
+    set:
+      gross_trailer_weight_limit: 61500
+
+# EDK 300 railway crane, 100 x 450 = 45 t, trailer limited to 22.8 t (50 units). The goldhofer_r never carries
+# more than 23 t elsewhere; raised on the maintainer's call (a 45 t crane on a heavy modular trailer is realistic).
+def/cargo/edk300/goldhofer_r.sii:
+  trailer_def.edk300.goldhofer_r:
+    set:
+      gross_trailer_weight_limit: 53600
+
+# ZIL-135, 12 t, trailer limited to 10.1 t (84 units). Same trailer carries up to 72 t.
+def/cargo/zil135j/goldhoferm.sii:
+  trailer_def.zil135j.goldhoferm:
+    set:
+      gross_trailer_weight_limit: 20600
+
+# FV438 Swingfire, 16.2 t, trailer limited to 13.8 t (85 units). Same trailer carries up to 44.8 t.
+def/cargo/fv438_swj/over_mmw.sii:
+  trailer_def.fv438_swj.over_mmw:
+    set:
+      gross_trailer_weight_limit: 22400
+
+# Concrete elements, 20.3 t, trailer limited to 12.4 t (61 units). Same trailer carries up to 32.4 t.
+def/cargo/beton_kon1j/wielton_nj4n.sii:
+  trailer_def.beton_kon1j.wielton_nj4n:
+    set:
+      gross_trailer_weight_limit: 28500
+
+# Metal rolls, 22 t, trailer limited to 18.1 t (82 units). Same trailer carries up to 47.6 t.
+def/cargo/m_rulon1j/bort_jsh.sii:
+  trailer_def.m_rulon1j.bort_jsh:
+    set:
+      gross_trailer_weight_limit: 28480
+
+# Cat D7H, payload exactly 30,260 kg = 100 x 302.6, but the division lands at 99.999 (99 units): +10 kg.
+def/cargo/catd7h_j/gal_jtw.sii:
+  trailer_def.cat_d7h_j.gal_jtw:
+    set:
+      gross_trailer_weight_limit: 37270
+
+# Garlic, 22.9 t, trailer limited to 22.5 t (98 units). Same trailer carries up to 24 t.
+def/cargo/chesnok_j1/jumbo_j1_01.sii:
+  trailer_def.chesnok_j1.jumbo_j1_01:
+    set:
+      gross_trailer_weight_limit: 29940
+
+# ChME3 locomotive, 60 t, trailer limited to 55.1 t (91 units). Same trailer carries up to 93.4 t.
+def/cargo/chme3/megar.sii:
+  trailer_def.chme3.megar:
+    set:
+      gross_trailer_weight_limit: 66600
