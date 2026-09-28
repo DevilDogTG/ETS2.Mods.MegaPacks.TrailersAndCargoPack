@@ -30,10 +30,17 @@ exclude:
   - "*.jpg"
   - "*.png"
 
+# The ETS2 version the pack is built for; its extraction (extract-reference, category base) supplies the company list.
+base_game:
+  version: "1.61.1.1"
+# Drop cargo links for companies the base game does not have (map-mod companies: RusMap `*_ru` and others, ~67k
+# of 140k link files). The maintainer runs no map mods. After a game update or a new map DLC: extract, relock.
+exclude_unknown_companies: true
+
 parts:
-  # Only what the cargo pay rebalance edits goes into <name>_def.scs; company links (~136k files) and all other
-  # defs travel with their source's asset parts, so no archive exceeds the 60k-entry limit.
-  def_globs: ["def/cargo/**", "def/cargo.*.sii"]
+  # No separate def part: every build repacks all parts anyway (ADR-0001), and without it the pack fits 3 archives
+  # under the engine's 60k-entries-per-archive limit.
+  split_defs: false
   max_part_bytes: 3221225472             # 3 GiB — a 2.98 GB HashFS part passed in game (AiTrafficPack probe)
   max_part_files: 60000                  # per-archive file limit reported by the engine (files + dirs)
   pack_margin: 0.9                       # fill parts to 90% of max_part_bytes by estimate; real size verified after packing
