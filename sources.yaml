@@ -31,6 +31,16 @@ sources:
       - "military_cargo_pack_by_Jazzycat_v6.8.7_eng.scs"
     origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/military-cargo-pack-by-jazzycat-9.html" }
     layer: 110
+    # Upstream bug (6.8.7): 26 of 28 traffic trailers (traf/*_traffic.sui) point at trailer folders under their old
+    # names; the pack ships them with an `m` suffix (game.log: "load_unit() - Failed to open file", every file
+    # present under the new name). The pack does not ship the old folders, so these only redirect references.
+    renames:
+      "def/vehicle/trailer_jazzy_military/chmzap_938530/": "def/vehicle/trailer_jazzy_military/chmzap938530m/"
+      "def/vehicle/trailer_jazzy_military/fliegl_over/": "def/vehicle/trailer_jazzy_military/fliegl_overm/"
+      "def/vehicle/trailer_jazzy_military/gal_j/": "def/vehicle/trailer_jazzy_military/gal_jm/"
+      "def/vehicle/trailer_jazzy_military/nooteboom/": "def/vehicle/trailer_jazzy_military/nooteboomm/"
+      "def/vehicle/trailer_jazzy_military/plat_bort/": "def/vehicle/trailer_jazzy_military/plat_bortm/"
+      "def/vehicle/trailer_jazzy_military/tral_j1/": "def/vehicle/trailer_jazzy_military/tral_j1m/"
 
   - id: jazzycat-military-traffic
     name: Military Cargo Pack (traffic add-on)
