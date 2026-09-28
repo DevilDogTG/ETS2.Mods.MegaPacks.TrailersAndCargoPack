@@ -54,5 +54,8 @@ load order next to Economy.
 **Harder:** each release, including pay-only ones, repacks every part. A skill change to reuse unchanged
 parts was considered and deferred, because every part shows the pack version and would need repacking on
 each version bump anyway; revisit if build time becomes a problem.
+**Update 2026-09-28:** the pack has no separate def part (`split_defs: false`), since every build repacks all
+parts anyway, and it drops cargo links to companies the base game lacks (`exclude_unknown_companies`; 67k of
+140k link files, for map mods the maintainer does not run). Result: 3 archives instead of 5.
 **Follow-up:** check paths this pack shares with the AI Traffic megapack (both carry Jazzycat content) and
 set the load order from that.
