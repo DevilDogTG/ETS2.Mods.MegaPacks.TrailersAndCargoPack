@@ -6,9 +6,11 @@ payload). Economy balances pay per load against vanilla's median load (Economy A
 Economy's own rules and units maths from the Economy repo (host root `@drivedogs_economy`,
 tools/generate_cargo_variety.py) instead of copying them. Economy stays standalone; this pack requires it.
 
-    python tools/cargo_rebalance.py analyze     -> cargo/analysis.md, cargo/analysis.tsv
+    python tools/cargo_rebalance.py analyze     -> cargo/analysis.md, cargo/analysis.tsv (Jazzycat as shipped)
+    python tools/cargo_rebalance.py generate    -> cargo/edits.yaml (megapack base_edits), cargo/rebalance.md
 
-Read-only: nothing under src/ or the sources is touched.
+`generate` applies the hand-reviewed data fixes in cargo/fixes.yaml, then moves each rebalanced group's median pay
+per load to its target (docs/adr/ADR-0002-cargo-pay-follows-economy.md). Neither command touches the sources.
 """
 import argparse
 import csv
@@ -130,8 +132,28 @@ def stats(loads: list[float], median_load: float) -> str:
     return f"| {len(s)} | {q[0]:.1f} | {statistics.median(s):.1f} | {q[8]:.1f} | {statistics.median(s) / median_load:.2f}x |"
 
 
-def analyze(args) -> None:
-    econ, econ_path = load_economy()
+def load_trailer_defs(def_dir: Path, econ) -> list[dict]:
+    """Economy's load_trailers (same fields and payload formula), plus unit name, file and the weights a fix may
+    change, so cargo/fixes.yaml can be applied before pay is computed."""
+    paths = [(p, None) for p in (def_dir / "vehicle" / "trailer_defs").glob("*.sii")]
+    paths += [(p, p.parent.name) for p in (def_dir / "cargo").glob("*/*.sii")]
+    out = []
+    for path, owner in paths:
+        text = path.read_text(encoding="utf-8-sig")
+        body, volume = econ.field(text, "body_type"), econ.field(text, "volume")
+        if not body or not volume:
+            continue
+        m = re.search(r"^\s*trailer_def\s*:\s*(\S+)", text, re.MULTILINE)
+        t = {"owner": owner, "body": body, "volume": float(volume), "chain": econ.field(text, "chain_type", "single"),
+             "gross": float(econ.field(text, "gross_trailer_weight_limit", 0)),
+             "chassis": float(econ.field(text, "chassis_mass", 0)), "body_mass": float(econ.field(text, "body_mass", 0)),
+             "unit": m.group(1) if m else None}
+        t["payload"] = t["gross"] - t["chassis"] - t["body_mass"]
+        out.append(t)
+    return out
+
+
+def load_model(econ) -> dict:
     mp = yaml.safe_load((ROOT / "megapack.yaml").read_text(encoding="utf-8"))
     ref_root = Path(host_section("Extracted Reference Root")["root"])
     version = str(mp["base_game"]["version"])
@@ -158,8 +180,8 @@ def analyze(args) -> None:
     for sid, root in sources_in_layer_order(ref_root):
         d = root / "def"
         for p in (d / "cargo").glob("*.sui"):
-            cargo_files[p.name.lower()] = (sid, p)
-        trailers += econ.load_trailers(d)
+            cargo_files[p.name.lower()] = (sid, p.relative_to(root).as_posix(), p)
+        trailers += load_trailer_defs(d, econ)
         for p in d.glob("cargo.*.sii"):
             included |= {Path(i).name.lower() for i in re.findall(r'@include\s+"([^"]+)"', p.read_text(encoding="utf-8-sig"))}
         for p in (d / "company").glob("*/*/*.sii"):
@@ -167,24 +189,41 @@ def analyze(args) -> None:
             if company in known_companies:
                 links[p.stem.lower()][direction] += 1
 
-    rows = []
-    for name, (sid, p) in sorted(cargo_files.items()):
+    cargo = []
+    for name, (sid, rel, p) in sorted(cargo_files.items()):
         c = parse_cargo(p.read_text(encoding="utf-8-sig"), econ)
-        if not c:
-            continue
-        n, mass_limited = units(c, trailers)
+        if c:
+            cargo.append({"source": sid, "rel": rel, "c": c, "included": name in included,
+                          "senders": links[c["id"].lower()]["out"], "receivers": links[c["id"].lower()]["in"]})
+    return {"version": version, "vanilla_n": len(vanilla), "median_load": median_load, "v_rows": v_rows,
+            "trailers": trailers, "cargo": cargo}
+
+
+def rows_for(model: dict) -> list[dict]:
+    median_load, rows = model["median_load"], []
+    for e in model["cargo"]:
+        c = e["c"]
+        n, mass_limited = units(c, model["trailers"])
         u = statistics.median(n) if n else 0
         load = c["rate"] * u
-        offered = name in included and u > 0 and links[c["id"].lower()]["out"] > 0
         rows.append({
-            "source": sid, "cargo": c["id"], "rate": c["rate"], "mass": c["mass"], "volume": c["volume"],
+            "source": e["source"], "cargo": c["id"], "rate": c["rate"], "mass": c["mass"], "volume": c["volume"],
             "units": u, "units_min": min(n) if n else 0, "units_max": max(n) if n else 0,
             "mass_limited": mass_limited, "load": round(load, 2), "x_median": round(load / median_load, 2),
             "category": "; ".join(category(c)), "groups": ",".join(c["groups"]), "adr": c["adr"] or "",
             "valuable": c["valuable"], "overweight": c["overweight"], "fragility": c["fragility"],
-            "included": name in included, "senders": links[c["id"].lower()]["out"],
-            "receivers": links[c["id"].lower()]["in"], "offered": offered,
+            "included": e["included"], "senders": e["senders"], "receivers": e["receivers"],
+            "offered": e["included"] and u > 0 and e["senders"] > 0, "rel": e["rel"],
         })
+    return rows
+
+
+def analyze(args) -> None:
+    econ, econ_path = load_economy()
+    model = load_model(econ)
+    version, median_load, v_rows = model["version"], model["median_load"], model["v_rows"]
+    vanilla = range(model["vanilla_n"])
+    rows = rows_for(model)
 
     OUT_DIR.mkdir(exist_ok=True)
     with open(OUT_DIR / "analysis.tsv", "w", newline="", encoding="utf-8") as fh:
@@ -252,12 +291,159 @@ def analyze(args) -> None:
     print("\n".join(md))
 
 
+# ---------------------------------------------------------------- generate
+CARGO_KEYS = {"mass": "mass", "volume": "volume", "unit_reward_per_km": "rate", "body_types[]": "bodies"}
+TRAILER_KEYS = {"gross_trailer_weight_limit": "gross", "chassis_mass": "chassis", "body_mass": "body_mass",
+                "volume": "volume", "body_type": "body"}
+
+
+def apply_fixes(model: dict, fixes: dict) -> None:
+    """Apply cargo/fixes.yaml `set` ops to the in-memory model, so pay is computed on the fixed data."""
+    by_cargo = {("cargo." + e["c"]["id"]).lower(): e["c"] for e in model["cargo"]}
+    by_trailer = {t["unit"].lower(): t for t in model["trailers"] if t.get("unit")}
+    for rel, per_unit in fixes.items():
+        for unit, ops in per_unit.items():
+            extra = set(ops) - {"set"}
+            if extra:
+                raise SystemExit(f"fixes.yaml {rel} {unit}: only `set` is supported here, not {sorted(extra)}")
+            kind, target = (CARGO_KEYS, by_cargo.get(unit.lower())) if unit.startswith("cargo.") \
+                else (TRAILER_KEYS, by_trailer.get(unit.lower()))
+            if target is None:
+                raise SystemExit(f"fixes.yaml {rel}: no unit {unit} in the merged sources")
+            for key, value in ops["set"].items():
+                if key not in kind:
+                    raise SystemExit(f"fixes.yaml {rel} {unit}: `{key}` is not a key this tool models")
+                target[kind[key]] = list(value) if isinstance(value, list) else (
+                    value if isinstance(value, str) else float(value))
+            if unit.startswith("trailer_def."):
+                target["payload"] = target["gross"] - target["chassis"] - target["body_mass"]
+
+
+def targets(model: dict, econ) -> dict[str, tuple[float, str]]:
+    """Pay per load, as a multiple of Economy's anchor, for each group this pack rebalances (ADR-0002): what that
+    kind of cargo pays with DriveDogs Economy installed. Economy's own target where it has one (hazmat tiers),
+    else vanilla's own per-load median for the same kind of cargo (Economy leaves those at vanilla)."""
+    median_load, v_rows = model["median_load"], model["v_rows"]
+
+    def vanilla_x(pred) -> float:
+        loads = [r["load"] for r in v_rows if pred(r)]
+        return statistics.median(loads) / median_load
+
+    out = {}
+    for cls in sorted({r["adr"] for r in v_rows if r["adr"]} | {e["c"]["adr"] for e in model["cargo"] if e["c"]["adr"]}):
+        if cls in econ.HAZMAT_TARGETS:
+            out[f"ADR class {cls}"] = (econ.HAZMAT_TARGETS[cls], f"Economy hazmat tier for class {cls}")
+        elif any(r["adr"] == cls for r in v_rows):
+            out[f"ADR class {cls}"] = (vanilla_x(lambda r: r["adr"] == cls),
+                                       f"vanilla class {cls} (Economy keeps vanilla's premium)")
+    out["overweight"] = (vanilla_x(lambda r: r["overweight"]), "vanilla overweight (heavy/oversize) cargo")
+    out["bulk"] = (vanilla_x(lambda r: "bulk" in r["groups"]), "vanilla bulk cargo")
+    return out
+
+
+def group_of(r: dict, tgt: dict) -> str | None:
+    """Premiums never stack: the highest applicable premium wins; bulk (a discount) only applies without one."""
+    premiums = [k for k in (f"ADR class {r['adr']}" if r["adr"] else None, "overweight" if r["overweight"] else None)
+                if k in tgt]
+    if premiums:
+        return max(premiums, key=lambda k: tgt[k][0])
+    return "bulk" if "bulk" in r["groups"].split(",") else None
+
+
+def yaml_value(v) -> str:
+    if isinstance(v, list):
+        return "[" + ", ".join(str(x) for x in v) + "]"
+    return str(v)
+
+
+def economy_commit(econ_path: Path) -> str:
+    import subprocess
+    r = subprocess.run(["git", "-C", str(econ_path.parent), "rev-parse", "--short", "HEAD"], capture_output=True, text=True)
+    return r.stdout.strip() or "unknown"
+
+
+def generate(args) -> None:
+    econ, econ_path = load_economy()
+    model = load_model(econ)
+    fixes_path = OUT_DIR / "fixes.yaml"
+    fixes = yaml.safe_load(fixes_path.read_text(encoding="utf-8")) or {}
+    before = {r["cargo"]: r for r in rows_for(model)}
+    apply_fixes(model, fixes)
+    rows = rows_for(model)
+    median_load, cap_x = model["median_load"], econ.LOAD_CAP
+    tgt = targets(model, econ)
+
+    groups = defaultdict(list)
+    for r in rows:
+        g = group_of(r, tgt) if r["offered"] else None
+        if g:
+            groups[g].append(r)
+
+    changes = {}  # cargo id -> (new rate, comment)
+    summary = []
+    for g, members in sorted(groups.items()):
+        target_x, why = tgt[g]
+        scale = target_x * median_load / statistics.median(r["load"] for r in members)
+        new_loads = []
+        for r in members:
+            rate = r["rate"] * scale
+            rate = min(rate, cap_x * median_load / r["units"])
+            if g != "bulk":
+                rate = max(rate, r["rate"])  # a premium never lowers pay (Economy rule)
+            rate = round(rate, 4)
+            new_loads.append(rate * r["units"])
+            if rate != r["rate"]:
+                changes[r["cargo"]] = (rate, f"{g} -> {target_x:.2f}x median ({why}): "
+                                             f"{r['load']:.1f} -> {rate * r['units']:.1f} EUR/km per load, rate {r['rate']} -> {rate}")
+        summary.append(f"| {g} | {len(members)} | {statistics.median(r['load'] for r in members):.1f} | "
+                       f"{statistics.median(new_loads):.1f} | {target_x:.2f}x | {why} |")
+
+    # edits: fixes first (as written), then the rate changes; one entry per unit
+    edits = defaultdict(dict)  # rel -> unit -> (set dict, [comments])
+    for rel, per_unit in fixes.items():
+        for unit, ops in per_unit.items():
+            edits[rel][unit] = (dict(ops["set"]), ["fix: see cargo/fixes.yaml"])
+    by_id = {r["cargo"]: r for r in rows}
+    for cid, (rate, comment) in changes.items():
+        rel, unit = by_id[cid]["rel"], f"cargo.{cid}"
+        sets, notes = edits[rel].get(unit, ({}, []))
+        sets["unit_reward_per_km"] = rate
+        edits[rel][unit] = (sets, notes + [comment])
+
+    lines = [
+        "# GENERATED by `python tools/cargo_rebalance.py generate` - do not edit. Change cargo/fixes.yaml or the tool.",
+        f"# Economy rules: {econ_path} @ {economy_commit(econ_path)}; anchor = vanilla {model['version']} median load "
+        f"{median_load:.2f} EUR/km (Economy's maths). Cap {cap_x}x median. See docs/adr/ADR-0002-cargo-pay-follows-economy.md.",
+    ]
+    for rel in sorted(edits, key=str.lower):
+        lines.append(f"{rel}:")
+        for unit, (sets, notes) in edits[rel].items():
+            lines.append(f"  {unit}:")
+            lines += [f"    # {n}" for n in notes]
+            lines.append("    set:")
+            lines += [f"      {k}: {yaml_value(v)}" for k, v in sets.items()]
+    (OUT_DIR / "edits.yaml").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+
+    fixed = [r for r in rows if r["cargo"] in before and r["load"] != before[r["cargo"]]["load"]
+             and r["cargo"] not in changes]
+    md = ["# Cargo rebalance (generated by `tools/cargo_rebalance.py generate`)", "",
+          f"Economy `{econ_path.name}` @ {economy_commit(econ_path)}; anchor {median_load:.2f} EUR/km per load. "
+          f"{len(changes)} rate changes, {sum(len(u) for u in fixes.values())} fixes; `cargo/edits.yaml` holds both.", "",
+          "| group | cargoes | median load before | after | target | why |", "|---|---|---|---|---|---|", *summary, "",
+          "Fixed data (pay changes through units, rate unchanged):", ""]
+    md += [f"- `{r['cargo']}`: {before[r['cargo']]['units']} -> {r['units']} units, "
+           f"{before[r['cargo']]['load']} -> {r['load']} EUR/km per load" for r in fixed]
+    (OUT_DIR / "rebalance.md").write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
+    print("\n".join(md))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("analyze", help="write cargo/analysis.md and cargo/analysis.tsv")
+    sub.add_parser("generate", help="apply cargo/fixes.yaml, rebalance rates; write cargo/edits.yaml and cargo/rebalance.md")
     args = ap.parse_args()
-    {"analyze": analyze}[args.cmd](args)
+    {"analyze": analyze, "generate": generate}[args.cmd](args)
 
 
 if __name__ == "__main__":
