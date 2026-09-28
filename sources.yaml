@@ -1,0 +1,50 @@
+# Origin mods merged into this pack. One entry per mod (archives of a multi-file mod listed together).
+#
+#   id         stable slug; also the extraction folder <root>/local/<id>/<version>/
+#   archives   paths relative to megapack.yaml `source_root`
+#   origin     where the archive comes from + how `megapack updates` checks it:
+#              modland {author, url = mod page} | scsfocus | scs-forum | steam-workshop | local {note}
+#   layer      merge order; higher wins on a declared override
+#   overrides  source ids or patterns this one may replace files of (collisions auto-resolve)
+#
+# Not used: the Overweight pack (a strict subset of the main pack, ADR-0001) and Military's Russian variant.
+schema: 1
+
+sources:
+  - id: jazzycat-trailers-cargo
+    name: Trailers and Cargo Pack
+    author: Jazzycat
+    version: "11.10.6"
+    archives:
+      - "trailers_and_cargo_pack_by_Jazzycat_v11.10.6_part1.scs"
+      - "trailers_and_cargo_pack_by_Jazzycat_v11.10.6_part2.scs"
+      - "trailers_and_cargo_pack_by_Jazzycat_v11.10.6_part3.scs"
+    origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/trailers-and-cargo-pack-by-jazzycat-13.html" }
+    layer: 100
+
+  - id: jazzycat-military
+    name: Military Cargo Pack
+    author: Jazzycat
+    version: "6.8.7"
+    archives:
+      - "military_cargo_pack_by_Jazzycat_v6.8.7_base.scs"
+      - "military_cargo_pack_by_Jazzycat_v6.8.7_eng.scs"
+    origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/military-cargo-pack-by-jazzycat-9.html" }
+    layer: 110
+
+  - id: jazzycat-military-traffic
+    name: Military Cargo Pack (traffic add-on)
+    author: Jazzycat
+    version: "6.8.7"
+    archives: ["military_cargo_pack_by_Jazzycat_traffic_v6.8.7.scs"]
+    origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/military-cargo-pack-by-jazzycat-9.html" }
+    layer: 111
+    targets: { jazzycat-military: "6.8.7" }
+
+  - id: jazzycat-railway
+    name: Railway Cargo Pack
+    author: Jazzycat
+    version: "4.6.7"
+    archives: ["railway_cargo_pack_by_Jazzycat_v4.6.7.scs"]
+    origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/railway-cargo-pack-by-jazzycat-4.html" }
+    layer: 120
