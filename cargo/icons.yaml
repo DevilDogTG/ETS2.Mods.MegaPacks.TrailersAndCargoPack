@@ -1,0 +1,153 @@
+# Freight-market icon for each Jazzycat cargo. Jazzycat ships none, and the game finds a cargo's icon only
+# at /material/ui/cargo_icons/<cargo_id>.mat, so `python tools/cargo_icons.py` writes one alias .mat per cargo into
+# overrides/ pointing at a base-game icon texture (vanilla does the same: apples_c.mat -> apples.tobj).
+#
+# Order: `exact` -> first matching `rules` regex (re.search on the cargo id) -> name stem equals a vanilla cargo
+# (apples_j1 -> apples) -> `source` default -> first `groups` entry the cargo has -> `default`.
+# Every icon must be a base-game cargo (@included by vanilla def/cargo.sii), never a DLC one: a DLC the player does
+# not own would leave the icon missing. The tool fails on any other name. See cargo/icons.md for the result.
+
+exact:
+  bell_b45ej: excavator        # Bell B45E articulated dump truck, not a helicopter
+  cat_745cj: excavator         # articulated dump truck
+  gazonkos_j1: tractors        # lawn mowers
+  strau_3401j: tractors        # Strautmann farm trailer
+  capspar610j: tractors
+  car_acces_j1: truck_rims
+  auto_bat_j1: truck_batt
+  prokladki_j1: post_packag
+  det_eda_j1: packag_food
+  det_eda_j2: packag_food
+  wat_filt_j1: oil_filters
+  house_roof_j: roof_tiles
+  figovina2jr: overweight
+  s_akrvan_j1: plumb_suppl     # acrylic bathtubs
+  s_ruber_j1: roofing_felt     # ruberoid
+
+rules:
+  # --- food and drink (many names are transliterated Russian)
+  - [cat_food|dog_food|c_dog_food, pet_food]
+  - [^can_beef|tushonka, canned_beef]
+  - [^can_pork, canned_pork]
+  - [^can_sard, can_sardines]
+  - [^can_(corn|anana|pers), canned_beans]
+  - [govyad|telyat|farsch|beef_tong, beef_meat]
+  - [svinin, pork_meat]
+  - [kur_grud|r_kur|indyush, chicken_meat]
+  - [salami|vetchina|smok_meat|tefteli|krov_kolb, sausages]
+  - [pashtet|_liv_j|beef_liv|cod_liv|pork_liv, liver_paste]
+  - [bel_cav|red_cav|kab_ikra, caviar]
+  - [fish_fing, fish_chips]
+  - [forel|herring|skumbria|makrel|piksha|kambal|s_kalmar|krevetki|lobster|crab_pal|ustric|r_los|r_mkl, fresh_fish]
+  - [moloko, milk]
+  - [smetana|tvorog, cott_cheese]
+  - [s_pl_syr|s_syr, cheese]
+  - [maslo|margarin, packag_food]
+  - [milk_choc|shokolad|s_shoko|choc_|kitkat, chocolate]
+  - [zefir, gummy_bears]
+  - [spagetti, pasta]
+  - [s_muka, flour]
+  - [zam_pizza|fro_bread|food_sup|griby|egg_j|dried_fruit|s_chips|r_sah, packag_food]
+  - [cofe|kofe_rast|s_tea, iced_coffee]
+  - [e_drink|redbull|schwepp|min_voda|bottle, bottle_water]
+  - [apsok|yabsok|s_sok, concen_juice]
+  - [vodka|vino|cognac|s_liker|whiskey, beverages]
+  - [beer, nonalco_beer]
+  - [pomidor|r_pom, tomatoes]
+  - [morkov, carrots]
+  - [^luk_j, onion]
+  - [chesnok, garlic]
+  - [kolrabi|cabbage|baklajan|redis, cauliflower]
+  - [banan|ananas|persik|kiwi|mango|papaya|hurma|avocado|limon|abricos, oranges]
+  - [rozy|tyulpan|s_flower|flowers, cut_flowers]
+  - [maize|sugbeet|sug_beet, wheat]
+  - [^salt_, salt_spices]
+  - [cows, live_cattle]
+  - [pigs, live_pigs]
+  # --- fuels and chemicals
+  - [^petr\d|^prbu|petrol, petrol]
+  - [^diesel\d, diesel]
+  - [^lpg, lpg]
+  - [xenon|helium|argon, neon]
+  - [hydrfluor, fluorine]
+  - [hydrochl, hydrochlor]
+  - [vinchlor, chlorine]
+  - [hexane|methanol|ethylene, hchemicals]
+  - [bitum|barr_oil, fuel_oil]
+  - [explosiv, explosives]
+  - [paint|s_kraska|s_kley|s_germet, chemicals]
+  # --- building materials
+  - [beton|gasobeton|fund_j|culvert, concr_beams2]
+  - [bricks|plitka, bricks]
+  - [panels|wallpan|pvc_panel|c_drywall|gips, wallpanels]
+  - [tube_\d|truba|tubes_b|big_balon, largetubes]
+  - [pipe|tubes_m, metal_pipes]
+  - [lumber|doska|vagonka|fanera|veneer|dvp_j|laminate|s_lamin|plintus|spanbo|okor, lumber]
+  - [woodchip, wshavings]
+  - [logs|^log\d|^log_|small_logs|fliegl_j\w*log, logs]
+  - [brus\dj, wooden_beams]
+  - [floorpan, floorpanels]
+  - [mram_bl, marb_blck]
+  - [schepa, wshavings]
+  - [^fert_, fertilizer]
+  - [clay|keramzit|crushstn|rock_part, gravel]
+  - [^cem|cementr, cement]
+  - [metalolom|met_lom, scrap_metals]
+  - [metiz|met_prof|stahl|s_stal|s_alum, metal_beams]
+  - [m_rulon, mtl_coil]
+  - [kabel, hi_volt_cabl]
+  - [glass|mirrors, glass_packed]
+  - [s_linol|c_carpet|c_oboi|s_otdmat|c_upmat|upmat|s_upmat|c_penopla|ste_vata, roofing_felt]
+  - [s_dveri|dveri, wooden_beams]
+  - [c_santech|s_teplis, plumb_suppl]
+  # --- goods
+  - [smartphon|ebook|fotoapp|microwave|dishwash|kofe_mach|s_hifi|domkino|ssd_j|drel_j|elinstr|led_light|light_fixt|c_pylesos|c_mobtel|c_tualbum|c_dtape|c_etape|r_tv, electronics]
+  - [divan|stul_j|matras|s_bed|shtory|s_kuchny|ofkresl|office|jaluzi|c_pla_meb, furniture]
+  - [s_odejda|c_shoes, clothes]
+  - [naboposu|c_h_soap|s_spopit, tableware]
+  - [s_tires|^tyres, tyres]
+  - [big_tyres, truck_tyres]
+  - [zapch, transmis]
+  - [radiator, radiators]
+  - [condit|ventil, hvac]
+  - [boiler, hipresstank]
+  - [s_pump|pump_equip, pumps]
+  - [barrels, empty_barr]
+  - [palet|upak_bu|karton|plastbu|crate_j|byto|torgob|s_akrvan|s_ruber, post_packag]
+  # --- vehicles and machinery
+  - [yacht|boat|kater|lux_yacht, lux_yacht]
+  - [heli\d|ka26|airtrac|pilatus|alouette|as332|mi8j, air_mails]
+  - [fabia|mini_jtz|peugeot|co_car|car_tr|rus_suv|maz_car, cars_fr]
+  - [transit, vans_fd]
+  - [sca_|scania|scan_fire, scania_tr]
+  - [volvo|vol_def, volvo_tr]
+  - [daf_, daf_tr]
+  - [iveco|man_|mb_two|prem_two|sinotruk|tatra|kam_dak|terberg|dump_trck|nk_truck|neoplan|ruslan|un_truck|raba_j|ros_panther, volvo_tr]
+  - [forklift|linde|still_r70|lifter|cat_th514|jcbfast|lh_r956|sw450, forklifts]
+  - [bulldozer|catd7h|cat_d8t|cat_d7|dozer|ratrak|terexrh400, crawler]
+  - [excavator|exc_sm|exch_j|liebhr\d|doosan|cat_m318|case\d+\w*j|case_\d+\w*j|bobcat|atlas|cat_pm620|wirtgen|vogele|bomag|hamm_|katok|roller|compactor|sweeper|cat_ap1055|cat_cs56|cat_140m3|cat_scra|liu614|excav_w|crusher, excavator]
+  - [crane|kran|konecranes|liebh|faun|derrick|drill_rig|mining_dev, overweight]
+  - [belarus|deutz|newhol|agro|same|landini|weid|t_150|k701|mb900|buhrer|horsch|kuhn|krone|amazz|bergm|jenz|maxtron|quan6800|tectron|vector410|xa186|claas|fendt|valtra|zunham|sim_sd660|schluter|samporosenc|rotech|profihopper|potjumbo|silosystem|challenger_j|caseih|newhl|bigm500|bigx1000|tt4_jr|logger_j|pon_, tractors]
+  - [generator|gerador|power_st, diesel_gen]
+  - [trans\dj|turbine, windml_eng]
+  - [wind_blade, windml_tube]
+  - [tank_j|tankst|cistern|hptank|big_tank|p_tank|silos_j, emptytank]
+  - [big_cont|garcont|foodcont|c_equip, large_cont]
+  - [machdev|inddev|indmach|equip|ref_equip|rig_mats|mach_parts, overweight]
+
+source:
+  jazzycat-military: ammunition
+  jazzycat-military-traffic: ammunition
+  jazzycat-railway: train_part
+
+groups:            # checked in this order
+  - [adr, chemicals]
+  - [refrigerated, packag_food]
+  - [liquid, emptytank]
+  - [bulk, gravel]
+  - [fragile, glass_packed]
+  - [construction, concr_beams2]
+  - [machinery, overweight]
+  - [containers, large_cont]
+
+default: post_packag
