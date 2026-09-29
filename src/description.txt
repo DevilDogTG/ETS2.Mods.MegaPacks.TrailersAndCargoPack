@@ -13,6 +13,9 @@
 --------------------
 [green]Changelogs
 
+[orange]v1.0.1
+[normal]- Brick trailer lamp mask from the Railway pack removed, so Better Flares' version shows
+
 [orange]v1.0.0
 [normal]- First release: Trailers & cargo 11.10.6, Military cargo 6.8.7 (+ traffic), Railway cargo 4.6.7
 - Cargo pay balanced to DriveDogs Economy's rules; broken cargo data fixed
