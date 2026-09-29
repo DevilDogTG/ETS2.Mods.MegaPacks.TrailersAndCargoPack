@@ -13,5 +13,7 @@
 --------------------
 [green]Changelogs
 
-[orange]v0.1.0
-[normal]- Initial merge
+[orange]v1.0.0
+[normal]- First release: Trailers & cargo 11.10.6, Military cargo 6.8.7 (+ traffic), Railway cargo 4.6.7
+- Cargo pay balanced to DriveDogs Economy's rules; broken cargo data fixed
+- AI traffic trailers built in
