@@ -6,6 +6,16 @@ cargo pay balanced to follow [DriveDogs Economy](https://github.com/DevilDogTG/E
 rules. This repo contains **configuration only**. Source content lives outside git.
 See [ADR-0001](docs/adr/ADR-0001-one-megapack-requires-economy.md).
 
+## Sources
+| Pack (Jazzycat) | Version | Archives used |
+|---|---|---|
+| Trailers & cargo | 11.10.6 | part1-3 |
+| Military cargo | 6.8.7 | base, eng, traffic add-on |
+| Railway cargo | 4.6.7 | main |
+
+Not used: the Overweight pack (older copies of files already in the main pack) and Military `rus`. Origin
+links are in `sources.yaml`.
+
 ## Structure
 - `megapack.yaml`: package identity, `source_root`, excludes, part size caps
 - `sources.yaml`: every origin mod: author, version, origin URL, layer, overrides
@@ -33,8 +43,9 @@ Uses the `ets2-mod-developer` profile's `megapack` skill:
 
 ## Installing
 Copy **all** `.scs` parts of one version from `output/local/` into the ETS2 `mod` folder and enable every part.
-Each release has new file names (`_v<version>`), so disable and remove the previous version's parts. Order
-between the parts does not matter.
+Each release has new file names (`_v<version>`), so disable and remove the previous version's parts. Load
+order does not matter, between the parts or against DriveDogs Economy and the AI Traffic megapack (they share
+no paths, or only byte-identical ones).
 
 Requires DriveDogs Economy. Built without map-mod support: Jazzycat cargo appears only at companies of the base
 game and its DLCs, not at ProMods/RusMap companies. Do not load the original Jazzycat trailer/cargo packs (including the Overweight
