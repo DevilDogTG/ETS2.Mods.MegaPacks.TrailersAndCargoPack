@@ -1,6 +1,6 @@
 # source: jazzycat-railway
 # version: 4.6.7
-# files: 7240
+# files: 7238
 path	size	sha256
 def/cargo.railway.sii	3094	0dfa2ed38f6a5b3e5ae23700d238fc35f59ed4dc19078cd24428718412175a06
 def/cargo/2te.sui	219	1463ac83bd92afcc5e444f7bca77d6e3fdae6270ea58376c29ae1b987bfc8880
@@ -4909,8 +4909,6 @@ vehicle/trailer_eu/brick_trailer/brick_trailer_blue.dds	699236	42bd181a45dcecdfe
 vehicle/trailer_eu/brick_trailer/brick_trailer_blue.tobj	104	692c90607aad6436475b619fe590fa2eb9b84b7f51ca2f2c41c9b905b3c7bf18
 vehicle/trailer_eu/brick_trailer/brick_trailer_green.dds	699236	842cf70d49a4a6d6dce5ac880af34a4fe748ca886e19e0434e7fb09d21501e4e
 vehicle/trailer_eu/brick_trailer/brick_trailer_green.tobj	105	3ba873278ef94ba3318f282a8895bec825429b6990a65e31d5e73274f85960ce
-vehicle/trailer_eu/brick_trailer/lamp_mask.dds	22052	6ac8a3a2d291ecdc7a628d03aabaee4ad3c40e2553eb221531d87c179a3d540c
-vehicle/trailer_eu/brick_trailer/lamp_mask.tobj	95	c5a76f19eb9de7d43055cc1ccc56ced3fe3123eb327cc8d647165ee3b12aab92
 vehicle/trailer_eu/flat_bed/fb_ventilation.dds	349700	e621dd70abac19606a0f23410d777e87c25b1b441de4280a1a4a4cc9b4eda233
 vehicle/trailer_eu/flat_bed/fb_ventilation.tobj	95	ab1ee81c64647523ced1a27484dea43532ab3a728ab8f9bc0fe20df1a644ef2c
 vehicle/trailer_eu/flat_bed/flat_bed.dds	699236	779ad75f9caf9ea86c12dd5624727364a7ca1cf74ca95b2f8030511b2669e7dc

@@ -58,3 +58,8 @@ sources:
     archives: ["railway_cargo_pack_by_Jazzycat_v4.6.7.scs"]
     origin: { type: modland, author: jazzycat, url: "https://www.modland.net/euro-truck-simulator-2/trailers/railway-cargo-pack-by-jazzycat-4.html" }
     layer: 120
+    # Its copy of the base game's brick trailer lamp mask differs from vanilla and from Better Flares Traffic Addon's;
+    # the megapack loads above Better Flares, so shipping it would hide BF's version. Let BF (or vanilla) win.
+    exclude:
+      - "vehicle/trailer_eu/brick_trailer/lamp_mask.dds"
+      - "vehicle/trailer_eu/brick_trailer/lamp_mask.tobj"
