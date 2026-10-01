@@ -57,5 +57,7 @@ each version bump anyway; revisit if build time becomes a problem.
 **Update 2026-09-28:** the pack has no separate def part (`split_defs: false`), since every build repacks all
 parts anyway, and it drops cargo links to companies the base game lacks (`exclude_unknown_companies`; 67k of
 140k link files, for map mods the maintainer does not run). Result: 3 archives instead of 5.
+**Update 2026-10-01:** a 5.09 GiB archive loads in game (DriveDogs World), so `max_part_bytes` is 5 GiB and only
+the 60,000-entries-per-archive limit splits the pack: 2 archives from 1.0.2.
 **Follow-up:** check paths this pack shares with the AI Traffic megapack (both carry Jazzycat content) and
 set the load order from that.
