@@ -43,7 +43,7 @@ Uses the `ets2-mod-developer` profile's `megapack` skill:
 4. `python tools/cargo_icons.py` refreshes the cargo icon aliases in `overrides/`.
 5. `megapack check` reports stale locks, unresolved collisions and edits that no longer apply.
 6. `megapack build` writes `output/local/<name>_partN_v<version>.scs` (`package.versioned_filenames`, the
-   DriveDogs naming convention; 2 parts today, split by the 60,000-entries-per-archive limit).
+   DriveDogs naming convention; 2 parts in 1.0.2, one archive from 1.1.0 if the in-game test passes).
    Needs the base game of `base_game.version` extracted (`extract-reference`, category `base`):
    `exclude_unknown_companies` drops cargo links to companies it does not have (map-mod companies).
 
