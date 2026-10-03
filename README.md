@@ -43,15 +43,15 @@ Uses the `ets2-mod-developer` profile's `megapack` skill:
 4. `python tools/cargo_icons.py` refreshes the cargo icon aliases in `overrides/`.
 5. `megapack check` reports stale locks, unresolved collisions and edits that no longer apply.
 6. `megapack build` writes `output/local/<name>_partN_v<version>.scs` (`package.versioned_filenames`, the
-   DriveDogs naming convention; 2 parts in 1.0.2, one archive from 1.1.0 if the in-game test passes).
+   DriveDogs naming convention; one archive since 1.1.0, ~110k entries, loads clean in game).
    Needs the base game of `base_game.version` extracted (`extract-reference`, category `base`):
    `exclude_unknown_companies` drops cargo links to companies it does not have (map-mod companies).
 
 ## Installing
-Copy **all** `.scs` parts of one version from `output/local/` into the ETS2 `mod` folder and enable every part.
-Each release has new file names (`_v<version>`), so disable and remove the previous version's parts. Load
-order does not matter, between the parts or against DriveDogs Economy and the AI Traffic megapack (they share
-no paths, or only byte-identical ones).
+Copy the `.scs` from `output/local/` into the ETS2 `mod` folder and enable it.
+Each release has a new file name (`_v<version>`), so disable and remove the previous version (1.0.2 and older
+came as several parts: remove all of them). Load order does not matter against DriveDogs Economy and the AI
+Traffic megapack (they share no paths, or only byte-identical ones).
 
 Requires DriveDogs Economy. Built without map-mod support: Jazzycat cargo appears only at companies of the base
 game and its DLCs, not at ProMods/RusMap companies. Do not load the original Jazzycat trailer/cargo packs (including the Overweight

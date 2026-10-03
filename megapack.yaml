@@ -5,7 +5,7 @@ schema: 1
 package:
   name: drivedog_megapack_trailers_cargo  # archive base name: <name>_partN_v<version>.scs
   display_name: "MegaPack: Trailers & Cargo"
-  version: "1.1.0-dev.2"                    # megapack's own version, independent of sources
+  version: "1.1.0"                        # megapack's own version, independent of sources
   versioned_filenames: true              # DriveDogs convention (as AI Traffic); each release is a new mod in the mod manager
   author: "DevilDogTG"
   game: ets2                             # ets2 | ats — sources must be for this game
@@ -49,7 +49,7 @@ parts:
   split_defs: false
   # Largest archive proven in game: 5.09 GiB (DriveDogs World 0.2.0-dev.4, 2026-09-30); the pack is ~3.5 GB.
   max_part_bytes: 5368709120
-  # The forum's 60k-entries-per-archive limit does not seem to apply to HashFS mods: AiTrafficPack 1.1.0-dev.1 loaded
-  # one archive of 86,583 entries (2026-10-01). 1.1.0-dev.2 tests this pack (~110k entries) as one archive.
+  # The forum's 60k-entries-per-archive limit does not apply to HashFS mods: this pack loaded clean as one archive of
+  # 109,887 entries (1.1.0-dev.2, 2026-10-03; same traffic trailer counts as the 2-part 1.0.2). One archive from 1.1.0.
   max_part_files: 200000
   pack_margin: 0.9                       # fill parts to 90% of max_part_bytes by estimate; real size verified after packing
