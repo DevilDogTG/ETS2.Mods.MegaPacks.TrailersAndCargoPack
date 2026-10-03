@@ -61,5 +61,7 @@ parts anyway, and it drops cargo links to companies the base game lacks (`exclud
 from 1.0.2, split by the forum's 60,000-entries-per-archive limit. That limit looks wrong for HashFS mods (AiTrafficPack
 loaded one archive of 86,583 entries), so 1.1.0-dev.2 tests the pack as one archive. Company cargo-link files cannot be
 merged to save entries: the game reads each as exactly one unit (1.1.0-dev.1 broke cargo).
+**Update 2026-10-03:** 1.1.0-dev.2 loaded clean as one archive of 109,887 entries, with the same traffic trailer
+counts as 1.0.2 and no new errors, so the 60k limit does not apply here: one archive from 1.1.0.
 **Follow-up:** check paths this pack shares with the AI Traffic megapack (both carry Jazzycat content) and
 set the load order from that.
