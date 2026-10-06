@@ -1,0 +1,20 @@
+# Decisions for collisions NOT covered by a source's `overrides:`, and the source copy each `overrides/` file that
+# replaces a shipped file was made from. Each entry is stamped with the hashes of the files it was decided against;
+# a changed hash marks it stale for re-review.
+#
+#   - path: def/example.sii
+#     winner: <source-id>            # or
+#     merged: overrides/def/example.sii
+#     inputs: { <source-id>: <sha256>, <source-id>: <sha256> }
+#     note: why
+schema: 1
+
+resolutions:
+  # Written by tools/fix_models.py: when stale, rerun it and update `inputs` from lock/<id>.tsv.
+  - path: vehicle/t_jazzycat/flatbed4/flatbed4.pmg
+    merged: overrides/vehicle/t_jazzycat/flatbed4/flatbed4.pmg
+    inputs: { jazzycat-trailers-cargo: f9b42d61bb8877b2509b7f92acc99788a5a22c75b6437e20ae65cf6714a19c84 }
+    note: >-
+      11.10.6 names the flatbed4 body locator `hook` (a second one, at the origin), so the game logs "Unable to find
+      body locator for trailer body in chassis" for the 14 flatbed4j cargoes. Renamed to `body`, as Military 6.8.7's
+      copy of the same model has it.
