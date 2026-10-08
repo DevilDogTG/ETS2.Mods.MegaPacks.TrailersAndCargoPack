@@ -18,9 +18,9 @@ from pathlib import Path
 
 import yaml
 
-from cargo_rebalance import ROOT, host_section
+from cargo_rebalance import GAME, ROOT, reference_root
 
-sys.path.insert(0, str(Path.home() / ".agent-brains" / "profiles" / "ets2-mod-developer" / "skills" / "megapack" / "scripts"))
+sys.path.insert(0, str(Path.home() / ".agent-brains" / "profiles" / "scs-mod-developer" / "skills" / "megapack" / "scripts"))
 from pmg import LOCATOR, Pmg, token_value  # noqa: E402
 
 # (source id, model path, (locator name, hookup, n-th such locator), new name)
@@ -53,7 +53,7 @@ def main():
     ap.add_argument("--check", action="store_true", help="verify the overrides instead of writing them")
     args = ap.parse_args()
 
-    ref_root = Path(host_section("Extracted Reference Root")["root"])
+    ref_root = reference_root(GAME)
     versions = {s["id"]: str(s["version"])
                 for s in yaml.safe_load((ROOT / "sources.yaml").read_text(encoding="utf-8"))["sources"]}
     bad = 0
