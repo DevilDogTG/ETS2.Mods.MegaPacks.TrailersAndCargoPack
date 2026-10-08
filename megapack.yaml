@@ -1,4 +1,4 @@
-# MegaPack build configuration — read by the ets2-mod-developer `megapack` skill.
+# MegaPack build configuration — read by the scs-mod-developer `megapack` skill.
 # See docs/adr/ADR-0001-one-megapack-requires-economy.md for why trailers, cargo and traffic ship together.
 schema: 1
 
@@ -13,7 +13,7 @@ package:
   description_template: src/description.txt
 
 # Where the original archives live (sources.yaml `archives` are relative to it). "@trailer_cargo_packs" is this
-# machine's folder, set under `## MegaPack Roots` in the profile host file hosts/<hostname>.local.md.
+# machine's folder, set under `games.<game>.megapack_roots` in the profile host file hosts/<hostname>.local.yaml.
 source_root: "@trailer_cargo_packs"
 
 # `megapack updates` scans source_root for newer archive versions and untracked archives.
