@@ -16,15 +16,17 @@ import argparse
 import csv
 import importlib.util
 import re
-import socket
 import statistics
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-HOSTS_DIR = Path.home() / ".agent-brains" / "profiles" / "ets2-mod-developer" / "hosts"
+sys.path.insert(0, str(Path.home() / ".agent-brains" / "profiles" / "scs-mod-developer" / "skills" / "megapack" / "scripts"))
+from megapack import megapack_root, reference_root, repo_game  # noqa: E402  — the host config API
+GAME = repo_game(ROOT)  # megapack.yaml package.game
 OUT_DIR = ROOT / "cargo"
 ECONOMY_SYMBOLS = ("HAZMAT_TARGETS", "LOAD_CAP", "VEHICLE_CARRIER_TARGET", "load_trailers", "load_vanilla", "field")
 
@@ -34,27 +36,8 @@ LIST_RE = {k: re.compile(rf"^\s*{re.escape(k)}\[\]\s*:\s*(\S+)", re.MULTILINE) f
 
 
 # ---------------------------------------------------------------- host + config
-def host_section(heading: str) -> dict[str, str]:
-    host = socket.gethostname().lower()
-    files = [p for p in HOSTS_DIR.glob("*.local.md") if p.name.lower() == f"{host}.local.md"]
-    if not files:
-        raise SystemExit(f"no host file for {host} in {HOSTS_DIR}")
-    entries, inside = {}, False
-    for line in files[0].read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if line.startswith("## "):
-            inside = line[3:].strip().lower() == heading.lower()
-        elif inside and line.startswith("- ") and ":" in line:
-            k, v = line[2:].split(":", 1)
-            entries[k.strip()] = v.split("<!--", 1)[0].strip()
-    return entries
-
-
 def load_economy():
-    root = host_section("MegaPack Roots").get("drivedogs_economy")
-    if not root:
-        raise SystemExit("host file has no '- drivedogs_economy:' under '## MegaPack Roots'")
-    path = Path(root) / "tools" / "generate_cargo_variety.py"
+    path = megapack_root(GAME, "drivedogs_economy") / "tools" / "generate_cargo_variety.py"
     if not path.is_file():
         raise SystemExit(f"DriveDogs Economy generator not found: {path}")
     spec = importlib.util.spec_from_file_location("dde_cargo_variety", path)
@@ -155,7 +138,7 @@ def load_trailer_defs(def_dir: Path, econ) -> list[dict]:
 
 def load_model(econ) -> dict:
     mp = yaml.safe_load((ROOT / "megapack.yaml").read_text(encoding="utf-8"))
-    ref_root = Path(host_section("Extracted Reference Root")["root"])
+    ref_root = reference_root(GAME)
     version = str(mp["base_game"]["version"])
     base_def = ref_root / "base" / version / "def"
     known_companies = {p.name.lower() for p in (base_def / "company").iterdir() if p.is_dir()}

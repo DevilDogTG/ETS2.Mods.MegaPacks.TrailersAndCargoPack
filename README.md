@@ -35,7 +35,7 @@ links are in `sources.yaml`.
 - `output/local/`: built `.scs` parts (gitignored)
 
 ## Building
-Uses the `ets2-mod-developer` profile's `megapack` skill:
+Uses the `scs-mod-developer` profile's `megapack` skill:
 1. `extract-reference` for each source not yet extracted.
 2. `megapack lock` refreshes `lock/` and reports collisions.
 3. `python tools/cargo_rebalance.py analyze` (report) and `generate` (writes `cargo/edits.yaml`); rerun after
