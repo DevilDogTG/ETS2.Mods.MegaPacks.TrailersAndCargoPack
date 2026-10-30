@@ -32,7 +32,7 @@ exclude:
 
 # The ETS2 version the pack is built for; its extraction (extract-reference, category base) supplies the company list.
 base_game:
-  version: "1.61.1.1"
+  version: "1.61.1.9"
 # Drop cargo links for companies the base game does not have (map-mod companies: RusMap `*_ru` and others, ~67k
 # of 140k link files). The maintainer runs no map mods. After a game update or a new map DLC: extract, relock.
 exclude_unknown_companies: true
