@@ -12,6 +12,10 @@
 --------------------
 [green]Changelogs
 
+[orange]v1.1.1
+[normal]- Flatbed4 trailer fixed: its cargo (Bobcat T590, Bell 206, Kuhn Primor 3570, Same Argon 3-75CV and 10 more) had no body locator to attach to
+- Built for ETS2 1.61.1.9
+
 [orange]v1.1.0
 [normal]- One archive instead of 2 parts: disable and remove both 1.0.2 parts
 
