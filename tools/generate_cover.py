@@ -13,6 +13,10 @@ left lane.
 Composited at 4x (1104x648) then downscaled for anti-aliasing. The version
 badge is read from megapack.yaml's package.version, so rerun this before every
 build that bumps the version.
+
+The game badge (bottom-left, one colour per game so the ETS2 and ATS covers
+differ at thumbnail size) comes from megapack.yaml's package.game, never a
+constant here. A white rim keeps it distinct over the light trails behind it.
 """
 import random
 from pathlib import Path
@@ -44,18 +48,24 @@ TAILLIGHT_COLOR = (255, 48, 36)
 MARKER_COLOR = (255, 150, 40)
 BADGE_COLOR = (255, 196, 84)
 BADGE_TEXT_COLOR = (20, 16, 10)
+# Same values as the DriveDogs family reference (DriveDogs Pets): ETS2 blue, ATS red.
+GAME_BADGES = {"ets2": ("ETS2", (40, 110, 210)), "ats": ("ATS", (200, 45, 45))}
+GAME_TEXT_COLOR = (255, 255, 255)
 
 ROAD_TOP = 0.72  # fraction of height where the road meets the skyline
 ROAD_BOTTOM_X = (0.30, 0.70)
 ROAD_TOP_X = (0.44, 0.56)
 
 
-def read_version():
-    cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
-    version = (cfg.get("package") or {}).get("version")
+def read_package():
+    """(version, game) from megapack.yaml's package block."""
+    package = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")).get("package") or {}
+    version, game = package.get("version"), package.get("game", "ets2")
     if not version:
         raise SystemExit(f"No package.version in {CONFIG_PATH}")
-    return str(version)
+    if game not in GAME_BADGES:
+        raise SystemExit(f"{CONFIG_PATH} package.game {game!r}: no badge defined")
+    return str(version), game
 
 
 def make_background(size):
@@ -297,24 +307,32 @@ def add_text(img):
     return img
 
 
-def add_version_badge(img, version):
-    """Amber pill in the empty top-right corner, legible at 276x162."""
-    draw = ImageDraw.Draw(img, "RGBA")
-    w, h = img.size
-    text = f"v{version}"
+def pill_layout(size, text, anchor):
+    """(font, text bbox, padding, pill box) of a pill; anchor = ("right", "top") for the version,
+    ("left", "bottom") for the game."""
+    w, h = size
     font = ImageFont.truetype(FONT_BOLD, int(h * 0.06))
-    bbox = draw.textbbox((0, 0), text, font=font)
-    pad_x, pad_y = h * 0.02, h * 0.015
-    x1, y0 = w - h * 0.03, h * 0.03
-    x0 = x1 - (bbox[2] - bbox[0]) - 2 * pad_x
-    y1 = y0 + (bbox[3] - bbox[1]) + 2 * pad_y
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=(y1 - y0) / 2, fill=(*BADGE_COLOR, 235))
-    draw.text((x0 + pad_x - bbox[0], y0 + pad_y - bbox[1]), text, font=font, fill=BADGE_TEXT_COLOR)
+    bbox = font.getbbox(text)
+    pad_x, pad_y, margin = h * 0.02, h * 0.015, h * 0.03
+    pw, ph = (bbox[2] - bbox[0]) + 2 * pad_x, (bbox[3] - bbox[1]) + 2 * pad_y
+    x0 = w - margin - pw if anchor[0] == "right" else margin
+    y0 = margin if anchor[1] == "top" else h - margin - ph
+    return font, bbox, (pad_x, pad_y), (x0, y0, x0 + pw, y0 + ph)
+
+
+def pill(img, text, fill, text_fill, anchor, outline=None):
+    """A rounded pill holding `text`, legible at the final 276x162 size. `outline` rims it so it stays
+    distinct over the light trails behind it."""
+    draw = ImageDraw.Draw(img, "RGBA")
+    font, bbox, (pad_x, pad_y), box = pill_layout(img.size, text, anchor)
+    draw.rounded_rectangle(box, radius=(box[3] - box[1]) / 2, fill=(*fill, 235),
+                           outline=outline, width=SCALE if outline else 0)
+    draw.text((box[0] + pad_x - bbox[0], box[1] + pad_y - bbox[1]), text, font=font, fill=text_fill)
     return img
 
 
 def main():
-    version = read_version()
+    version, game = read_package()
     img = make_background(CANVAS_SIZE)
     img = add_skyline(img)
     img = add_road(img)
@@ -322,11 +340,13 @@ def main():
     img = add_vehicles(img)
     img = paste_logo(img)
     img = add_text(img)
-    img = add_version_badge(img, version)
+    img = pill(img, f"v{version}", BADGE_COLOR, BADGE_TEXT_COLOR, ("right", "top"))
+    label, colour = GAME_BADGES[game]
+    img = pill(img, label, colour, GAME_TEXT_COLOR, ("left", "bottom"), outline=GAME_TEXT_COLOR)
     img = img.resize(FINAL_SIZE, Image.LANCZOS)
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     img.save(OUT_PATH, "JPEG", quality=92)
-    print(f"Wrote {OUT_PATH} ({img.size[0]}x{img.size[1]}, v{version})")
+    print(f"Wrote {OUT_PATH} ({img.size[0]}x{img.size[1]}, v{version}, {label})")
 
 
 if __name__ == "__main__":
