@@ -8,15 +8,15 @@ jazzycat-military	abramsj	0.2201	600.0	1.0	100	100	100	False	22.01	1.11	overweig
 jazzycat-trailers-cargo	abricos_j1	0.2	211.1	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.2	True	44	53	True	def/cargo/abricos_j1.sui
 jazzycat-military	adatsj	0.2201	158.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.1	True	57	65	True	def/cargo/adatsj.sui
 jazzycat-trailers-cargo	agrofarm430j	0.2108	102.2	1.0	100	100	100	False	21.08	1.06	valuable	machinery		True	False	0.5	True	17	13	True	def/cargo/agrofarm430j.sui
-jazzycat-trailers-cargo	agrotron720j	0.2018	252.6	1.0	100	100	100	False	20.18	1.01	overweight; valuable; fragile (>=0.7)	machinery		True	True	0.8	True	8	20	True	def/cargo/agrotron720j.sui
-jazzycat-trailers-cargo	agrovector_j	0.2118	121.8	1.0	100	100	100	False	21.18	1.06	valuable	machinery		True	False	0.5	True	17	19	True	def/cargo/agrovector_j.sui
+jazzycat-trailers-cargo	agrotron720j	0.2018	252.6	1.0	100	100	100	False	20.18	1.02	overweight; valuable; fragile (>=0.7)	machinery		True	True	0.8	True	8	20	True	def/cargo/agrotron720j.sui
+jazzycat-trailers-cargo	agrovector_j	0.2118	121.8	1.0	100	100	100	False	21.18	1.07	valuable	machinery		True	False	0.5	True	17	19	True	def/cargo/agrovector_j.sui
 jazzycat-military	ah1j	0.2201	40.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.2	True	60	68	True	def/cargo/ah1j.sui
 jazzycat-military	ah64dj	0.2201	50.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.2	True	60	68	True	def/cargo/ah64dj.sui
 jazzycat-military	ah6j	0.2	10.0	1.0	100	100	100	False	20.0	1.01	ordinary	machinery		False	False	0.2	True	60	68	True	def/cargo/ah6j.sui
 jazzycat-trailers-cargo	airtrac1j	0.2008	50.5	1.0	100	100	100	False	20.08	1.01	ordinary	machinery		False	False	0.5	True	7	7	True	def/cargo/airtrac1j.sui
 jazzycat-trailers-cargo	airtrac2j	0.2008	41.0	1.0	100	100	100	False	20.08	1.01	ordinary	machinery		False	False	0.4	True	5	5	True	def/cargo/airtrac2j.sui
 jazzycat-trailers-cargo	airtrac3j	0.2	45.1	1.0	100	100	100	False	20.0	1.01	ordinary	machinery		False	False	0.4	True	7	7	True	def/cargo/airtrac3j.sui
-jazzycat-trailers-cargo	airtrac4j	0.2158	116.0	1.0	100	100	100	False	21.58	1.08	valuable	machinery		True	False	0.6	True	5	5	True	def/cargo/airtrac4j.sui
+jazzycat-trailers-cargo	airtrac4j	0.2158	116.0	1.0	100	100	100	False	21.58	1.09	valuable	machinery		True	False	0.6	True	5	5	True	def/cargo/airtrac4j.sui
 jazzycat-trailers-cargo	airtrac5j	0.2	73.3	1.0	100	100	100	False	20.0	1.01	ordinary	machinery		False	False	0.5	True	7	7	True	def/cargo/airtrac5j.sui
 jazzycat-trailers-cargo	airtrac6j	0.21	83.2	1.0	100	100	100	False	21.0	1.06	valuable	machinery		True	False	0.4	True	7	7	True	def/cargo/airtrac6j.sui
 jazzycat-trailers-cargo	airtrac7j	0.2108	113.1	1.0	100	100	100	False	21.08	1.06	valuable	machinery		True	False	0.5	True	5	5	True	def/cargo/airtrac7j.sui
@@ -52,7 +52,7 @@ jazzycat-military	as565j	0.2201	25.0	1.0	100	100	100	False	22.01	1.11	overweight
 jazzycat-military	as90j	0.2201	450.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.01	True	50	65	True	def/cargo/as90j.sui
 jazzycat-military	astros2j	0.2201	98.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.3	True	0	65	False	def/cargo/astros2j.sui
 jazzycat-military	at105j	0.2201	100.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.1	True	57	65	True	def/cargo/at105j.sui
-jazzycat-trailers-cargo	atlas_160wj	0.2158	176.0	1.0	100	100	100	False	21.58	1.08	valuable	machinery		True	False	0.6	True	33	28	True	def/cargo/atlas_160wj.sui
+jazzycat-trailers-cargo	atlas_160wj	0.2158	176.0	1.0	100	100	100	False	21.58	1.09	valuable	machinery		True	False	0.6	True	33	28	True	def/cargo/atlas_160wj.sui
 jazzycat-trailers-cargo	atlas_l310j	0.2208	175.0	1.0	100	100	100	False	22.08	1.11	valuable	machinery		True	False	0.5	True	38	33	True	def/cargo/atlas_l310j.sui
 jazzycat-trailers-cargo	auto_bat_j1	0.2	246.9	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	45	70	True	def/cargo/auto_bat_j1.sui
 jazzycat-trailers-cargo	avocado_j	0.2	205.1	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.2	True	42	48	True	def/cargo/avocado_j.sui
@@ -253,7 +253,7 @@ jazzycat-military	challenger1j	0.2201	620.0	1.0	100	100	100	False	22.01	1.11	ove
 jazzycat-military	challenger2j	0.2201	620.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.01	True	57	65	True	def/cargo/challenger2j.sui
 jazzycat-trailers-cargo	challenger_j	0.2208	252.6	1.0	100	100	100	False	22.08	1.11	overweight; valuable; fragile (>=0.7)	machinery		True	True	0.75	True	36	31	True	def/cargo/challenger_j.sui
 jazzycat-trailers-cargo	cheese_j1	0.2	201.0	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.3	True	50	52	True	def/cargo/cheese_j1.sui
-jazzycat-trailers-cargo	chesnok_j1	0.2	229.4	1.0	98	98	98	True	19.6	0.98	ordinary	containers		False	False	0.3	True	19	64	True	def/cargo/chesnok_j1.sui
+jazzycat-trailers-cargo	chesnok_j1	0.2	229.4	1.0	98	98	98	True	19.6	0.99	ordinary	containers		False	False	0.3	True	19	64	True	def/cargo/chesnok_j1.sui
 jazzycat-military	chieft_mk10j	0.2201	550.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.01	True	57	65	True	def/cargo/chieft_mk10j.sui
 jazzycat-railway	chme3	0.2301	600.0	1.0	91	91	91	True	20.94	1.05	overweight; valuable	machinery		True	True	0.2	True	6	13	True	def/cargo/chme3.sui
 jazzycat-trailers-cargo	choc_konf_j1	0.2	201.5	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.3	True	42	52	True	def/cargo/choc_konf_j1.sui
@@ -320,7 +320,7 @@ jazzycat-trailers-cargo	det_vgen2j	0.21	175.5	1.0	100	100	100	False	21.0	1.06	va
 jazzycat-trailers-cargo	det_vgen3j	0.2208	281.5	1.0	100	100	100	False	22.08	1.11	overweight; valuable	construction		True	True	0.4	True	11	5	True	def/cargo/det_vgen3j.sui
 jazzycat-trailers-cargo	deutz5465j	0.2102	123.6	1.0	100	100	100	False	21.02	1.06	valuable; fragile (>=0.7)	machinery		True	False	0.75	True	6	12	True	def/cargo/deutz5465j.sui
 jazzycat-trailers-cargo	deutz6095j	0.2108	139.8	1.0	100	100	100	False	21.08	1.06	valuable; fragile (>=0.7)	machinery		True	False	0.75	True	6	12	True	def/cargo/deutz6095j.sui
-jazzycat-trailers-cargo	deutz7545j	0.2158	141.9	1.0	100	100	100	False	21.58	1.08	valuable; fragile (>=0.7)	machinery		True	False	0.75	True	6	12	True	def/cargo/deutz7545j.sui
+jazzycat-trailers-cargo	deutz7545j	0.2158	141.9	1.0	100	100	100	False	21.58	1.09	valuable; fragile (>=0.7)	machinery		True	False	0.75	True	6	12	True	def/cargo/deutz7545j.sui
 jazzycat-railway	dgku	0.2301	320.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.3	True	26	47	True	def/cargo/dgku.sui
 jazzycat-trailers-cargo	diesel1j	0.2	234.8	1.0	100	100	100	False	20.0	1.01	ADR class 3	liquid,adr	3	False	False	0.5	True	10	72	True	def/cargo/diesel1j.sui
 jazzycat-trailers-cargo	diesel2j	0.2	232.4	1.0	100	100	100	False	20.0	1.01	ADR class 3	liquid,adr	3	False	False	0.5	True	10	52	True	def/cargo/diesel2j.sui
@@ -403,8 +403,8 @@ jazzycat-railway	fl_car_62	0.2301	270.0	1.0	100	100	100	False	23.01	1.16	overwei
 jazzycat-railway	fl_car_centr	0.2301	250.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	6	13	True	def/cargo/fl_car_centr.sui
 jazzycat-railway	fl_car_p	0.2301	270.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	4	13	True	def/cargo/fl_car_p.sui
 jazzycat-railway	flatbed	0.2301	220.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	6	13	True	def/cargo/flatbed.sui
-jazzycat-trailers-cargo	fliegl_jlog	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.2	False	13	13	False	def/cargo/fliegl_jlog.sui
-jazzycat-trailers-cargo	fliegl_jplog	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.2	True	0	0	False	def/cargo/fliegl_jplog.sui
+jazzycat-trailers-cargo	fliegl_jlog	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.2	False	13	13	False	def/cargo/fliegl_jlog.sui
+jazzycat-trailers-cargo	fliegl_jplog	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.2	True	0	0	False	def/cargo/fliegl_jplog.sui
 jazzycat-trailers-cargo	floorpan_j1	0.2	228.4	1.0	100	100	100	False	20.0	1.01	ordinary	construction		False	False	0.2	True	14	13	True	def/cargo/floorpan_j1.sui
 jazzycat-trailers-cargo	flowers_j1	0.2	218.5	1.0	0	0	0	False	0.0	0.0	ordinary	refrigerated		False	False	0.5	True	55	51	False	def/cargo/flowers_j1.sui
 jazzycat-trailers-cargo	food_sup_j1	0.2	182.6	1.0	100.0	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	42	64	True	def/cargo/food_sup_j1.sui
@@ -475,7 +475,7 @@ jazzycat-trailers-cargo	griby_j1	0.2	143.1	1.0	100	100	100	False	20.0	1.01	ordin
 jazzycat-railway	gt4j	0.2301	115.1	1.0	100	100	100	False	23.01	1.16	valuable	machinery		True	False	0.3	True	7	24	True	def/cargo/gt4j.sui
 jazzycat-military	gun_boatj	0.2201	200.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.3	True	63	14	True	def/cargo/gun_boatj.sui
 jazzycat-military	gvozdikaj	0.2201	150.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.01	True	5	65	True	def/cargo/gvozdikaj.sui
-jazzycat-trailers-cargo	hamm_h11j	0.2158	116.0	1.0	100	100	100	False	21.58	1.08	valuable	machinery		True	False	0.4	True	24	19	True	def/cargo/hamm_h11j.sui
+jazzycat-trailers-cargo	hamm_h11j	0.2158	116.0	1.0	100	100	100	False	21.58	1.09	valuable	machinery		True	False	0.4	True	24	19	True	def/cargo/hamm_h11j.sui
 jazzycat-trailers-cargo	hamm_hdplus	0.21	90.0	1.0	100	100	100	False	21.0	1.06	valuable; fragile (>=0.7)	machinery		True	False	0.8	True	24	19	True	def/cargo/hamm_hdplus.sui
 jazzycat-railway	hcar_isp	0.2301	230.0	1.0	100.0	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	26	47	True	def/cargo/hcar_isp.sui
 jazzycat-trailers-cargo	heli1je	0.2	15.2	1.0	100	100	100	False	20.0	1.01	fragile (>=0.7)	machinery		False	False	0.9	True	11	7	True	def/cargo/heli1je.sui
@@ -518,8 +518,8 @@ jazzycat-trailers-cargo	inddev03j	0.2208	233.5	1.0	100	100	100	False	22.08	1.11	
 jazzycat-trailers-cargo	inddev05j	0.21	193.0	1.0	100	100	100	False	21.0	1.06	valuable	machinery		True	False	0.4	True	6	26	True	def/cargo/inddev05j.sui
 jazzycat-trailers-cargo	inddev06j	0.201	135.4	1.0	100	100	100	False	20.1	1.01	fragile (>=0.7)	machinery		False	False	0.7	True	6	26	True	def/cargo/inddev06j.sui
 jazzycat-trailers-cargo	inddev07j	0.2208	327.6	1.0	100	100	100	False	22.08	1.11	overweight; valuable	machinery		True	True	0.2	True	6	26	True	def/cargo/inddev07j.sui
-jazzycat-trailers-cargo	indmach01j	0.2158	287.5	1.0	100	100	100	False	21.58	1.08	overweight; valuable	machinery		True	True	0.6	True	6	26	True	def/cargo/indmach01j.sui
-jazzycat-trailers-cargo	indmach02j	0.2158	227.5	1.0	100	100	100	False	21.58	1.08	valuable	machinery		True	False	0.6	True	6	26	True	def/cargo/indmach02j.sui
+jazzycat-trailers-cargo	indmach01j	0.2158	287.5	1.0	100	100	100	False	21.58	1.09	overweight; valuable	machinery		True	True	0.6	True	6	26	True	def/cargo/indmach01j.sui
+jazzycat-trailers-cargo	indmach02j	0.2158	227.5	1.0	100	100	100	False	21.58	1.09	valuable	machinery		True	False	0.6	True	6	26	True	def/cargo/indmach02j.sui
 jazzycat-trailers-cargo	indyush_j1	0.2	224.3	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.3	True	60	63	True	def/cargo/indyush_j1.sui
 jazzycat-military	ito90j	0.2201	157.0	1.0	100	100	100	False	22.01	1.11	ordinary	machinery		False	False	0.4	True	57	65	True	def/cargo/ito90j.sui
 jazzycat-military	iveco_lmvj	0.2201	130.0	1.0	100	100	100	False	22.01	1.11	ordinary	machinery		False	False	0.2	True	57	65	True	def/cargo/iveco_lmvj.sui
@@ -586,7 +586,7 @@ jazzycat-trailers-cargo	liebhlrtracj	0.215	223.5	1.0	100	100	100	False	21.5	1.08
 jazzycat-trailers-cargo	liebhr736j	0.2208	205.1	1.0	100	100	100	False	22.08	1.11	valuable; fragile (>=0.7)	machinery		True	False	0.7	True	40	35	True	def/cargo/liebhr736j.sui
 jazzycat-trailers-cargo	liebhr936j	0.22	300.8	1.0	100	100	100	False	22.0	1.11	overweight; valuable	machinery		True	True	0.5	True	43	38	True	def/cargo/liebhr936j.sui
 jazzycat-trailers-cargo	lifter_j	0.212	188.1	1.0	100	100	100	False	21.2	1.07	valuable; fragile (>=0.7)	machinery		True	False	0.73	True	0	0	False	def/cargo/lifter_j.sui
-jazzycat-trailers-cargo	light_fixt2j	0.2	287.1	1.0	97	97	97	True	19.4	0.97	fragile (>=0.7)	containers		False	False	0.9	True	6	15	True	def/cargo/light_fixt2j.sui
+jazzycat-trailers-cargo	light_fixt2j	0.2	287.1	1.0	97	97	97	True	19.4	0.98	fragile (>=0.7)	containers		False	False	0.9	True	6	15	True	def/cargo/light_fixt2j.sui
 jazzycat-trailers-cargo	light_fixt_j	0.2	185.4	1.0	100	100	100	False	20.0	1.01	fragile (>=0.7)	containers		False	False	0.9	True	39	85	True	def/cargo/light_fixt_j.sui
 jazzycat-trailers-cargo	limon_j1	0.2	234.8	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.4	True	42	52	True	def/cargo/limon_j1.sui
 jazzycat-trailers-cargo	linde_j	0.2	173.8	1.0	100	100	100	False	20.0	1.01	fragile (>=0.7)	construction		False	False	0.7	True	5	97	True	def/cargo/linde_j.sui
@@ -643,7 +643,7 @@ jazzycat-military	m752_lancej	0.2	136.0	1.0	100	100	100	False	20.0	1.01	overweig
 jazzycat-military	m87_orkanj	0.2201	320.0	1.0	100	100	100	False	22.01	1.11	overweight	machinery		False	True	0.3	True	57	65	True	def/cargo/m87_orkanj.sui
 jazzycat-military	m978j	0.2201	350.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.01	True	57	65	True	def/cargo/m978j.sui
 jazzycat-military	m983j	0.2201	193.0	1.0	100	100	100	False	22.01	1.11	valuable	machinery		True	False	0.3	True	57	65	True	def/cargo/m983j.sui
-jazzycat-trailers-cargo	m_rulon1j	0.2	219.8	1.0	82	82	82	True	16.4	0.82	ordinary	construction		False	False	0.1	True	15	36	True	def/cargo/m_rulon1j.sui
+jazzycat-trailers-cargo	m_rulon1j	0.2	219.8	1.0	82	82	82	True	16.4	0.83	ordinary	construction		False	False	0.1	True	15	36	True	def/cargo/m_rulon1j.sui
 jazzycat-trailers-cargo	m_rulon2j	0.202	266.3	1.0	100	100	100	False	20.2	1.02	overweight	machinery		False	True	0.1	True	15	36	True	def/cargo/m_rulon2j.sui
 jazzycat-trailers-cargo	machdev03j	0.22	175.2	1.0	100	100	100	False	22.0	1.11	valuable	machinery		True	False	0.4	True	6	26	True	def/cargo/machdev03j.sui
 jazzycat-trailers-cargo	machdev05j	0.22	182.8	1.0	100	100	100	False	22.0	1.11	valuable	machinery		True	False	0.4	True	6	26	True	def/cargo/machdev05j.sui
@@ -745,25 +745,25 @@ jazzycat-trailers-cargo	p_tank_jr	0.2	141.0	1.0	100	100	100	False	20.0	1.01	ordi
 jazzycat-railway	pa300	0.2301	450.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	26	47	True	def/cargo/pa300.sui
 jazzycat-trailers-cargo	paint_j1	0.2	236.2	1.0	100.0	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	45	83	True	def/cargo/paint_j1.sui
 jazzycat-trailers-cargo	paint_j2	0.2	306.7	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	42	75	True	def/cargo/paint_j2.sui
-jazzycat-trailers-cargo	palet_b_j01	0.18	171.6	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j01.sui
-jazzycat-trailers-cargo	palet_b_j02	0.18	161.8	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j02.sui
-jazzycat-trailers-cargo	palet_b_j03	0.18	173.6	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j03.sui
-jazzycat-trailers-cargo	palet_b_j04	0.18	164.6	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	65	True	def/cargo/palet_b_j04.sui
-jazzycat-trailers-cargo	palet_b_j05	0.18	158.2	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j05.sui
-jazzycat-trailers-cargo	palet_b_j06	0.18	169.7	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	False	12	66	False	def/cargo/palet_b_j06.sui
-jazzycat-trailers-cargo	palet_j01	0.18	220.8	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	12	37	True	def/cargo/palet_j01.sui
-jazzycat-trailers-cargo	palet_j02	0.18	212.2	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	12	26	True	def/cargo/palet_j02.sui
-jazzycat-trailers-cargo	palet_j03	0.18	239.2	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	12	31	True	def/cargo/palet_j03.sui
-jazzycat-trailers-cargo	palet_j04	0.18	235.2	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	12	44	True	def/cargo/palet_j04.sui
+jazzycat-trailers-cargo	palet_b_j01	0.18	171.6	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j01.sui
+jazzycat-trailers-cargo	palet_b_j02	0.18	161.8	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j02.sui
+jazzycat-trailers-cargo	palet_b_j03	0.18	173.6	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j03.sui
+jazzycat-trailers-cargo	palet_b_j04	0.18	164.6	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	65	True	def/cargo/palet_b_j04.sui
+jazzycat-trailers-cargo	palet_b_j05	0.18	158.2	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	66	True	def/cargo/palet_b_j05.sui
+jazzycat-trailers-cargo	palet_b_j06	0.18	169.7	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	False	12	66	False	def/cargo/palet_b_j06.sui
+jazzycat-trailers-cargo	palet_j01	0.18	220.8	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	12	37	True	def/cargo/palet_j01.sui
+jazzycat-trailers-cargo	palet_j02	0.18	212.2	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	12	26	True	def/cargo/palet_j02.sui
+jazzycat-trailers-cargo	palet_j03	0.18	239.2	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	12	31	True	def/cargo/palet_j03.sui
+jazzycat-trailers-cargo	palet_j04	0.18	235.2	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	12	44	True	def/cargo/palet_j04.sui
 jazzycat-trailers-cargo	palet_j05	0.18	329.0	1.0	72.0	72	72	True	12.96	0.65	ordinary	containers		False	False	0.1	True	12	37	True	def/cargo/palet_j05.sui
-jazzycat-trailers-cargo	palet_j06	0.18	211.8	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	12	49	True	def/cargo/palet_j06.sui
-jazzycat-trailers-cargo	palet_j07	0.18	231.8	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	12	49	True	def/cargo/palet_j07.sui
-jazzycat-trailers-cargo	palet_j08	0.18	231.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	13	37	True	def/cargo/palet_j08.sui
-jazzycat-trailers-cargo	palet_jr1	0.18	134.6	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr1.sui
-jazzycat-trailers-cargo	palet_jr2	0.18	233.8	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr2.sui
-jazzycat-trailers-cargo	palet_jr3	0.18	141.2	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr3.sui
-jazzycat-trailers-cargo	palet_jr4	0.18	141.9	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr4.sui
-jazzycat-trailers-cargo	palet_jr5	0.18	139.5	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr5.sui
+jazzycat-trailers-cargo	palet_j06	0.18	211.8	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	12	49	True	def/cargo/palet_j06.sui
+jazzycat-trailers-cargo	palet_j07	0.18	231.8	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	12	49	True	def/cargo/palet_j07.sui
+jazzycat-trailers-cargo	palet_j08	0.18	231.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	13	37	True	def/cargo/palet_j08.sui
+jazzycat-trailers-cargo	palet_jr1	0.18	134.6	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr1.sui
+jazzycat-trailers-cargo	palet_jr2	0.18	233.8	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr2.sui
+jazzycat-trailers-cargo	palet_jr3	0.18	141.2	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr3.sui
+jazzycat-trailers-cargo	palet_jr4	0.18	141.9	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr4.sui
+jazzycat-trailers-cargo	palet_jr5	0.18	139.5	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.1	True	0	1	False	def/cargo/palet_jr5.sui
 jazzycat-military	palmariaj	0.2201	460.0	1.0	100	100	100	False	22.01	1.11	overweight; valuable	machinery		True	True	0.1	True	56	59	True	def/cargo/palmariaj.sui
 jazzycat-trailers-cargo	panels_j1	0.2	275.1	1.0	100	100	100	False	20.0	1.01	overweight	construction		False	True	0.1	True	17	26	True	def/cargo/panels_j1.sui
 jazzycat-trailers-cargo	panels_jr1	0.202	146.2	1.0	100	100	100	False	20.2	1.02	valuable	construction		True	False	0.1	True	0	0	False	def/cargo/panels_jr1.sui
@@ -778,20 +778,20 @@ jazzycat-military	perehj	0.2201	620.0	1.0	100	100	100	False	22.01	1.11	overweigh
 jazzycat-trailers-cargo	persik_j1	0.2	201.8	1.0	100	100	100	False	20.0	1.01	fragile (>=0.7)	refrigerated		False	False	0.8	True	43	52	True	def/cargo/persik_j1.sui
 jazzycat-trailers-cargo	petr1a100_jr	0.2	234.3	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1a100_jr.sui
 jazzycat-trailers-cargo	petr1bln_jr	0.2	231.3	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1bln_jr.sui
-jazzycat-trailers-cargo	petr1blne_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1blne_jr.sui
+jazzycat-trailers-cargo	petr1blne_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1blne_jr.sui
 jazzycat-trailers-cargo	petr1gzp_jr	0.2	239.6	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1gzp_jr.sui
-jazzycat-trailers-cargo	petr1gzpe_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1gzpe_jr.sui
+jazzycat-trailers-cargo	petr1gzpe_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1gzpe_jr.sui
 jazzycat-trailers-cargo	petr1luk_jr	0.2	239.7	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1luk_jr.sui
-jazzycat-trailers-cargo	petr1luke_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1luke_jr.sui
+jazzycat-trailers-cargo	petr1luke_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr1luke_jr.sui
 jazzycat-trailers-cargo	petr1orl_jp	0.2	235.5	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1orl_jp.sui
 jazzycat-trailers-cargo	petr1uc_jr	0.2	232.9	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr1uc_jr.sui
 jazzycat-trailers-cargo	petr2a100_jr	0.2	234.3	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2a100_jr.sui
 jazzycat-trailers-cargo	petr2bln_jr	0.2	231.3	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2bln_jr.sui
-jazzycat-trailers-cargo	petr2blne_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2blne_jr.sui
+jazzycat-trailers-cargo	petr2blne_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2blne_jr.sui
 jazzycat-trailers-cargo	petr2gzp_jr	0.2	239.6	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2gzp_jr.sui
-jazzycat-trailers-cargo	petr2gzpe_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2gzpe_jr.sui
+jazzycat-trailers-cargo	petr2gzpe_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2gzpe_jr.sui
 jazzycat-trailers-cargo	petr2luk_jr	0.2	239.7	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2luk_jr.sui
-jazzycat-trailers-cargo	petr2luke_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2luke_jr.sui
+jazzycat-trailers-cargo	petr2luke_jr	0.18	65.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/petr2luke_jr.sui
 jazzycat-trailers-cargo	petr2orl_jp	0.2	235.5	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2orl_jp.sui
 jazzycat-trailers-cargo	petr2uc_jr	0.2	232.9	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	0	0	False	def/cargo/petr2uc_jr.sui
 jazzycat-trailers-cargo	petrol1j	0.2	224.4	1.0	100	100	100	False	20.0	1.01	ADR class 3	adr,liquid	3	False	False	0.4	True	10	33	True	def/cargo/petrol1j.sui
@@ -814,7 +814,7 @@ jazzycat-trailers-cargo	pipes2j	0.2	96.6	1.0	100	100	100	False	20.0	1.01	ordinar
 jazzycat-trailers-cargo	pipes3j	0.201	186.6	1.0	100	100	100	False	20.1	1.01	ordinary	construction		False	False	0.1	True	15	22	True	def/cargo/pipes3j.sui
 jazzycat-trailers-cargo	pipes4j	0.203	251.2	1.0	100	100	100	False	20.3	1.02	overweight	construction		False	True	0.1	True	14	26	True	def/cargo/pipes4j.sui
 jazzycat-trailers-cargo	pipes5j	0.2005	217.1	1.0	100	100	100	False	20.05	1.01	ordinary	construction		False	False	0.2	True	15	28	True	def/cargo/pipes5j.sui
-jazzycat-trailers-cargo	plastbu_j01	0.18	96.1	1.0	100	100	100	False	18.0	0.9	ordinary	containers		False	False	0.0	True	12	5	True	def/cargo/plastbu_j01.sui
+jazzycat-trailers-cargo	plastbu_j01	0.18	96.1	1.0	100	100	100	False	18.0	0.91	ordinary	containers		False	False	0.0	True	12	5	True	def/cargo/plastbu_j01.sui
 jazzycat-railway	plat139744	0.2301	250.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	6	13	True	def/cargo/plat139744.sui
 jazzycat-railway	plat13974401	0.2301	350.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	6	13	True	def/cargo/plat13974401.sui
 jazzycat-railway	plat234000	0.2301	230.0	1.0	100	100	100	False	23.01	1.16	overweight; valuable	machinery		True	True	0.2	True	4	13	True	def/cargo/plat234000.sui
@@ -837,7 +837,7 @@ jazzycat-trailers-cargo	potatoes3jr	0.2	233.1	1.0	100	100	100	False	20.0	1.01	or
 jazzycat-trailers-cargo	potjumboj	0.214	119.5	1.0	100	100	100	False	21.4	1.08	fragile (>=0.7)	machinery		False	False	0.75	True	5	13	True	def/cargo/potjumboj.sui
 jazzycat-trailers-cargo	power_stj	0.2208	352.2	1.0	100	100	100	False	22.08	1.11	overweight; valuable	construction		True	True	0.3	True	11	8	True	def/cargo/power_stj.sui
 jazzycat-trailers-cargo	prbu1luk_jr	0.22	222.1	1.0	100	100	100	False	22.0	1.11	ADR class 3; fragile (>=0.7)	adr,liquid	3	False	False	1.0	True	0	0	False	def/cargo/prbu1luk_jr.sui
-jazzycat-trailers-cargo	prbu1luke_jr	0.18	60.0	1.0	100	100	100	False	18.0	0.9	ordinary			False	False	0.1	True	0	0	False	def/cargo/prbu1luke_jr.sui
+jazzycat-trailers-cargo	prbu1luke_jr	0.18	60.0	1.0	100	100	100	False	18.0	0.91	ordinary			False	False	0.1	True	0	0	False	def/cargo/prbu1luke_jr.sui
 jazzycat-trailers-cargo	prem_two_j1	0.2208	151.4	1.0	100	100	100	False	22.08	1.11	fragile (>=0.7)	machinery		False	False	0.95	True	7	2	True	def/cargo/prem_two_j1.sui
 jazzycat-trailers-cargo	profihopperj	0.2005	70.8	1.0	100	100	100	False	20.05	1.01	fragile (>=0.7)	machinery		False	False	0.7	True	8	13	True	def/cargo/profihopperj.sui
 jazzycat-trailers-cargo	prokladki_j1	0.2	121.0	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.2	True	30	38	True	def/cargo/prokladki_j1.sui
@@ -870,7 +870,7 @@ jazzycat-military	redutj	0.2201	250.0	1.0	100	100	100	False	22.01	1.11	valuable	
 jazzycat-trailers-cargo	ref_equip_j1	0.2	239.3	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.6	True	43	86	True	def/cargo/ref_equip_j1.sui
 jazzycat-trailers-cargo	ref_equip_j2	0.2	331.0	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.5	True	5	9	True	def/cargo/ref_equip_j2.sui
 jazzycat-railway	rhv	0.2101	150.0	1.0	100	100	100	False	21.01	1.06	valuable	machinery		True	False	0.2	True	19	45	True	def/cargo/rhv.sui
-jazzycat-trailers-cargo	rig_mats_j	0.15	82.0	1.0	100	100	100	False	15.0	0.75	ordinary	machinery		False	False	0.0	True	14	26	True	def/cargo/rig_mats_j.sui
+jazzycat-trailers-cargo	rig_mats_j	0.15	82.0	1.0	100	100	100	False	15.0	0.76	ordinary	machinery		False	False	0.0	True	14	26	True	def/cargo/rig_mats_j.sui
 jazzycat-military	rm70j	0.2201	337.0	1.0	100	100	100	False	22.01	1.11	overweight	machinery		False	True	0.4	True	57	65	True	def/cargo/rm70j.sui
 jazzycat-trailers-cargo	roadrollerj	0.2208	195.6	1.0	100	100	100	False	22.08	1.11	overweight; valuable	machinery		True	True	0.3	True	24	19	True	def/cargo/roadrollerj.sui
 jazzycat-trailers-cargo	rock_part_jr	0.2	172.5	1.0	100	100	100	False	20.0	1.01	ordinary	machinery		False	False	0.6	True	0	0	False	def/cargo/rock_part_jr.sui
@@ -906,7 +906,7 @@ jazzycat-trailers-cargo	s_lamin_j1	0.2	231.1	1.0	100.0	100	100	False	20.0	1.01	o
 jazzycat-trailers-cargo	s_liker_j1	0.2	236.3	1.0	100	100	100	False	20.0	1.01	fragile (>=0.7)	containers		False	False	0.9	True	42	52	True	def/cargo/s_liker_j1.sui
 jazzycat-trailers-cargo	s_linol_j1	0.2	224.2	1.0	100.0	100	100	False	20.0	1.01	ordinary	containers		False	False	0.2	True	42	51	True	def/cargo/s_linol_j1.sui
 jazzycat-trailers-cargo	s_muka_j1	0.2	225.5	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.6	True	51	52	True	def/cargo/s_muka_j1.sui
-jazzycat-trailers-cargo	s_odejda_j1	0.2	178.0	1.0	83.0	83	83	True	16.6	0.83	ordinary	containers		False	False	0.2	True	42	50	True	def/cargo/s_odejda_j1.sui
+jazzycat-trailers-cargo	s_odejda_j1	0.2	178.0	1.0	83.0	83	83	True	16.6	0.84	ordinary	containers		False	False	0.2	True	42	50	True	def/cargo/s_odejda_j1.sui
 jazzycat-trailers-cargo	s_okprop_j1	0.2	152.6	1.0	100.0	100	100	False	20.0	1.01	ordinary	containers		False	False	0.2	True	41	42	True	def/cargo/s_okprop_j1.sui
 jazzycat-trailers-cargo	s_otdmat_j1	0.2	232.5	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	42	50	True	def/cargo/s_otdmat_j1.sui
 jazzycat-trailers-cargo	s_pl_syr_j1	0.2	201.7	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.2	True	42	51	True	def/cargo/s_pl_syr_j1.sui
@@ -916,7 +916,7 @@ jazzycat-trailers-cargo	s_ruber_j1	0.2	235.4	1.0	100	100	100	False	20.0	1.01	ord
 jazzycat-trailers-cargo	s_schwepp_j1	0.2	205.7	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	42	52	True	def/cargo/s_schwepp_j1.sui
 jazzycat-trailers-cargo	s_shoko_j1	0.2	201.8	1.0	100	100	100	False	20.0	1.01	ordinary	refrigerated		False	False	0.3	True	42	52	True	def/cargo/s_shoko_j1.sui
 jazzycat-trailers-cargo	s_spopit_j1	0.2	213.3	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.4	True	51	50	True	def/cargo/s_spopit_j1.sui
-jazzycat-trailers-cargo	s_stal_j1	0.2	241.0	1.0	96.0	96	96	True	19.2	0.96	ordinary	containers		False	False	0.1	True	9	36	True	def/cargo/s_stal_j1.sui
+jazzycat-trailers-cargo	s_stal_j1	0.2	241.0	1.0	96.0	96	96	True	19.2	0.97	ordinary	containers		False	False	0.1	True	9	36	True	def/cargo/s_stal_j1.sui
 jazzycat-trailers-cargo	s_syr_j01	0.2	227.7	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.3	True	59	51	True	def/cargo/s_syr_j01.sui
 jazzycat-trailers-cargo	s_tea_j1	0.2	135.0	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.2	True	42	52	True	def/cargo/s_tea_j1.sui
 jazzycat-trailers-cargo	s_teplis_j1	0.2	193.4	1.0	100	100	100	False	20.0	1.01	ordinary	containers		False	False	0.1	True	41	61	True	def/cargo/s_teplis_j1.sui
@@ -1109,7 +1109,7 @@ jazzycat-trailers-cargo	wallpan1j	0.2	182.4	1.0	100	100	100	False	20.0	1.01	ordi
 jazzycat-trailers-cargo	wallpan2j	0.205	282.4	1.0	100	100	100	False	20.5	1.03	overweight	construction		False	True	0.2	True	17	22	True	def/cargo/wallpan2j.sui
 jazzycat-trailers-cargo	wat_filt_j1	0.21	182.1	1.0	100	100	100	False	21.0	1.06	ordinary	machinery		False	False	0.5	True	10	32	True	def/cargo/wat_filt_j1.sui
 jazzycat-trailers-cargo	weid4270j	0.208	91.6	1.0	100	100	100	False	20.8	1.05	valuable	machinery		True	False	0.5	True	19	19	True	def/cargo/weid4270j.sui
-jazzycat-trailers-cargo	wheat_j1	0.2	235.0	1.0	97	97	97	True	19.4	0.97	ordinary	bulk		False	False	0.2	True	18	31	True	def/cargo/wheat_j1.sui
+jazzycat-trailers-cargo	wheat_j1	0.2	235.0	1.0	97	97	97	True	19.4	0.98	ordinary	bulk		False	False	0.2	True	18	31	True	def/cargo/wheat_j1.sui
 jazzycat-trailers-cargo	wheat_j1r	0.2	232.0	1.0	100	100	100	False	20.0	1.01	ordinary	bulk		False	False	0.2	True	0	1	False	def/cargo/wheat_j1r.sui
 jazzycat-trailers-cargo	wheat_j2	0.2	214.5	1.0	100	100	100	False	20.0	1.01	ordinary	bulk		False	False	0.2	True	18	31	True	def/cargo/wheat_j2.sui
 jazzycat-trailers-cargo	wheat_j3	0.2	235.5	1.0	100	100	100	False	20.0	1.01	ordinary	bulk		False	False	0.2	True	18	31	True	def/cargo/wheat_j3.sui
