@@ -61,4 +61,4 @@ Traffic megapack (they share no paths, or only byte-identical ones).
 
 Requires DriveDogs Economy. Built without map-mod support: Jazzycat cargo appears only at companies of the base
 game and its DLCs, not at ProMods/RusMap companies. Do not load the original Jazzycat trailer/cargo packs (including the Overweight
-pack and the traffic add-ons): they are built in. Built for ETS2 1.61.
+pack and the traffic add-ons): they are built in. Built for ETS2 1.62.

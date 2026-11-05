@@ -17,7 +17,7 @@ from pathlib import Path
 
 import yaml
 
-from cargo_rebalance import CARGO_RE, GAME, LIST_RE, ROOT, reference_root, sources_in_layer_order
+from cargo_rebalance import CARGO_RE, GAME, LIST_RE, ROOT, base_dir, reference_root, sources_in_layer_order
 
 CONFIG = ROOT / "cargo" / "icons.yaml"
 OUT_DIR = ROOT / "overrides" / "material" / "ui" / "cargo_icons"
@@ -85,7 +85,7 @@ def main():
     cfg = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
     mp = yaml.safe_load((ROOT / "megapack.yaml").read_text(encoding="utf-8"))
     ref_root = reference_root(GAME)
-    icons = base_icons(ref_root / "base" / str(mp["base_game"]["version"]) )
+    icons = base_icons(base_dir(ref_root, str(mp["base_game"]["version"])))
 
     named = list(cfg["exact"].values()) + [i for _, i in cfg["rules"]] + list(cfg["source"].values())
     named += [i for _, i in cfg["groups"]] + [cfg["default"]]

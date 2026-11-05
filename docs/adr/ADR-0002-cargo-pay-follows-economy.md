@@ -7,10 +7,10 @@
 ## Context
 This pack requires DriveDogs Economy (ADR-0001). Economy balances cargo pay per trailer load, not per unit (its
 ADR-0001): a job pays `unit_reward_per_km` x units, units come from the cargo's trailer_defs, and categories are
-set as multiples of vanilla's median load (Economy's anchor, 19.87 EUR/km for 1.61.1.1). Economy raises hazmat
-by ADR class (1: 1.5x, 6: 1.4x, 8: 1.35x, 2: 1.3x, 4: 1.2x), keeps categories vanilla already pays a premium
-(ADR class 3), caps any cargo at 2x and never lowers a vanilla rate. Its principle: every pay difference needs a
-reason sized to it.
+set as multiples of vanilla's median load (Economy's anchor, recomputed for each base game: 19.87 EUR/km for
+1.61.1.1 and 1.62). Economy raises hazmat by ADR class (1: 1.5x, 6: 1.4x, 8: 1.35x, 2: 1.3x, 4: 1.2x), keeps
+categories vanilla already pays a premium (ADR class 3), caps any cargo at 2x and never lowers a vanilla rate. Its
+principle: every pay difference needs a reason sized to it.
 
 Measured the same way (`tools/cargo_rebalance.py analyze`, `cargo/analysis.md`), Jazzycat pays nearly every
 cargo the same, 20-22 EUR/km per load. Against vanilla for the same kind of cargo:

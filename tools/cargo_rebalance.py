@@ -25,7 +25,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path.home() / ".agent-brains" / "profiles" / "scs-mod-developer" / "skills" / "megapack" / "scripts"))
-from megapack import megapack_root, reference_root, repo_game  # noqa: E402  — the host config API
+from megapack import base_dir, megapack_root, reference_root, repo_game  # noqa: E402  — the host config API
 GAME = repo_game(ROOT)  # megapack.yaml package.game
 OUT_DIR = ROOT / "cargo"
 ECONOMY_SYMBOLS = ("HAZMAT_TARGETS", "LOAD_CAP", "VEHICLE_CARRIER_TARGET", "load_trailers", "load_vanilla", "field")
@@ -140,7 +140,7 @@ def load_model(econ) -> dict:
     mp = yaml.safe_load((ROOT / "megapack.yaml").read_text(encoding="utf-8"))
     ref_root = reference_root(GAME)
     version = str(mp["base_game"]["version"])
-    base_def = ref_root / "base" / version / "def"
+    base_def = base_dir(ref_root, version) / "def"
     known_companies = {p.name.lower() for p in (base_def / "company").iterdir() if p.is_dir()}
 
     # Economy's anchor, computed by Economy's own code (so targets stay aligned with Economy even where its maths

@@ -1,6 +1,6 @@
 [orange]{{display_name}}{{part_label}}
 
-[normal]Personal merge of Jazzycat's trailer and cargo packs (Trailers & cargo, Military cargo, Railway cargo) into one resolved set: company trailers, cargo jobs and AI traffic trailers, with cargo pay balanced to match DriveDogs Economy for ETS2 1.61.
+[normal]Personal merge of Jazzycat's trailer and cargo packs (Trailers & cargo, Military cargo, Railway cargo) into one resolved set: company trailers, cargo jobs and AI traffic trailers, with cargo pay balanced to match DriveDogs Economy for ETS2 1.62.
 [red]Requires DriveDogs Economy.
 [red]Do not load the original Jazzycat trailer/cargo packs (including the Overweight pack and the traffic add-ons): they are built in.
 --------------------
@@ -11,6 +11,9 @@
 [normal]{{source_links}}
 --------------------
 [green]Changelogs
+
+[orange]v1.1.2
+[normal]- Built for ETS2 1.62: cargo pay follows Economy's 1.62 anchor (19 hazardous cargoes pay about 0.15% less)
 
 [orange]v1.1.1
 [normal]- Flatbed4 trailer fixed: its cargo (Bobcat T590, Bell 206, Kuhn Primor 3570, Same Argon 3-75CV and 10 more) had no body locator to attach to
