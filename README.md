@@ -27,11 +27,15 @@ links are in `sources.yaml`.
 - `cargo/icons.yaml` + `tools/cargo_icons.py`: freight-market icons. Jazzycat ships none and the game finds a cargo's
   icon only at `material/ui/cargo_icons/<cargo_id>.mat`, so the tool writes one alias `.mat` per cargo into
   `overrides/` pointing at the closest base-game icon (no DLC icons: a DLC the player lacks would leave it blank).
-  `cargo/icons.md` lists every pick. Rerun after a source update or a change to `icons.yaml`
+  `cargo/icons.md` lists every pick. It also writes the `.mat` the base game itself lacks (ETS2 1.62: battery,
+  chem_granule, chlorine_t, sulfuric_t; `vanilla:` in `icons.yaml`). Rerun after a source update, a game update or a
+  change to `icons.yaml`
 - `tools/fix_models.py`: fixes misnamed locators in Jazzycat models (flatbed4's body locator is named `hook` in the
   main pack, so its cargo had nowhere to attach) by renaming only that locator in the source model, written into
   `overrides/`. `--check` verifies the written models. Rerun after a source update
-- `overrides/`: files laid over the merged sources at build (the generated cargo icons and fixed models)
+- `overrides/`: files laid over the merged sources at build (the generated cargo icons and fixed models), plus
+  `material/ui/battery.mat`: ETS2 1.62's time-skip screen asks for it, but the base game has it only as
+  `material/ui/adviser/battery.mat` ("Can not open '/material/ui/battery.mat'"). Drop it once the game ships its own
 - `resolutions.yaml`: the source copy each `overrides/` file replacing a shipped file was made from, so `megapack check`
   warns when upstream changes it
 - `src/manifest.sii`, `src/description.txt`: templates for each output part's manifest
