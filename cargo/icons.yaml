@@ -151,3 +151,11 @@ groups:            # checked in this order
   - [containers, large_cont]
 
 default: post_packag
+
+# Base-game cargoes the base game ships without an icon .mat (ETS2 1.62: battery, chem_granule, chlorine_t,
+# sulfuric_t log "Missing default icon for cargo" at start). The tool writes one for every such cargo: to the icon
+# named here, or else to the cargo's own .tobj when vanilla has one (battery, chem_granule). It fails on a gap with
+# neither, and on an entry here that vanilla now covers itself (drop the entry).
+vanilla:
+  chlorine_t: chlorine
+  sulfuric_t: sulfuric

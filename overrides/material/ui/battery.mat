@@ -1,0 +1,12 @@
+effect : "ui.sdf.rfx" {
+	aux[0] : { 21.00000, 20.00000, 2.00000, 0.00000 }
+	aux[1] : { 1.00000, 1.00000, 1.00000, 1.00000 }
+	aux[2] : { 0.00000, 0.00000, 0.00000, 0.00000 }
+	aux[3] : { 0.00000, 0.00000, 0.00000, 0.00000 }
+	aux[4] : { 0.00000, 0.00000, 0.00000, 0.00000 }
+	texture : "texture" {
+		source : "/material/ui/adviser/battery.tobj"
+		u_address : clamp
+		v_address : clamp
+	}
+}

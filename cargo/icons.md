@@ -5,6 +5,15 @@ Jazzycat cargo in `overrides/material/ui/cargo_icons/`, pointing at a base-game 
 
 1136 cargoes: 734 by rule, 311 by source, 51 by name, 25 by group, 15 by exact.
 
+Base-game cargoes the base game ships without an icon `.mat` (4):
+
+| Cargo | Icon |
+|---|---|
+| battery | battery.tobj |
+| chem_granule | chem_granule.tobj |
+| chlorine_t | chlorine |
+| sulfuric_t | sulfuric |
+
 | Cargo | Source | Groups | Icon | Picked by |
 |---|---|---|---|---|
 | 2te | jazzycat-railway | machinery | train_part | source |
