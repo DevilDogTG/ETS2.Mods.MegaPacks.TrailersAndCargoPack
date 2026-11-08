@@ -278,6 +278,7 @@ def analyze(args) -> None:
 CARGO_KEYS = {"mass": "mass", "volume": "volume", "unit_reward_per_km": "rate", "body_types[]": "bodies"}
 TRAILER_KEYS = {"gross_trailer_weight_limit": "gross", "chassis_mass": "chassis", "body_mass": "body_mass",
                 "volume": "volume", "body_type": "body"}
+NO_PAY_KEYS = {"name"}  # cargo keys fixes.yaml may set that do not change pay (a look-alike rename, ADR-0003)
 
 
 def apply_fixes(model: dict, fixes: dict) -> None:
@@ -294,6 +295,8 @@ def apply_fixes(model: dict, fixes: dict) -> None:
             if target is None:
                 raise SystemExit(f"fixes.yaml {rel}: no unit {unit} in the merged sources")
             for key, value in ops["set"].items():
+                if unit.startswith("cargo.") and key in NO_PAY_KEYS:
+                    continue  # written to cargo/edits.yaml for the build; nothing to model
                 if key not in kind:
                     raise SystemExit(f"fixes.yaml {rel} {unit}: `{key}` is not a key this tool models")
                 target[kind[key]] = list(value) if isinstance(value, list) else (
@@ -336,6 +339,8 @@ def group_of(r: dict, tgt: dict) -> str | None:
 def yaml_value(v) -> str:
     if isinstance(v, list):
         return "[" + ", ".join(str(x) for x in v) + "]"
+    if isinstance(v, str) and not re.fullmatch(r"[\w.]+", v):
+        return "'" + v.replace("'", "''") + "'"  # a quoted SII string ("Transformer (Jazzycat)") keeps its quotes
     return str(v)
 
 

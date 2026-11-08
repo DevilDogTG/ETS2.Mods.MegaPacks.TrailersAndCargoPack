@@ -1,0 +1,41 @@
+# Pack cargo links tools/achievement_guard.py lets stay at a company slot an ETS2 achievement checks (ADR-0003).
+# Every other pack link at such a slot must be dropped by a megapack.yaml `exclude`. After a Jazzycat or game update a
+# new link at a checked slot fails `--check`: decide it with the maintainer, then exclude it or list it here.
+#
+#   <company>/<in|out>:
+#     reason   why these links cannot be mistaken for the cargo the achievement counts
+#     links    link file names without .sii, as the pack ships them
+#
+# `lookalikes: {<pack cargo id>: <reason>}` keeps a pack cargo named like the cargo of an achievement without a
+# company (Heavy Cargo, Special Transport, the West Balkans production chain) although a merged link offers it.
+# None today: the pack's "Ore" (ore2jr) is offered only by a map-mod company the build drops.
+keep:
+  rock_eater/out:
+    reason: >-
+      Temple Worthy (gr_marble) counts only marble blocks and slabs from Greek quarries; the pack's machinery, gravel,
+      sand and site offices there look nothing like marble (maintainer, 2026-11-08). The marble look-alikes are
+      excluded in megapack.yaml.
+    links: [atlas_l310j, bell_b45ej, bobcat_e55j, bobcat_t590j, bulldozer1j, bulldozer5j, bulldozer6j, byto_j1,
+            case2050j, case70xt_j, case_1021j, case_321fj, cat_745cj, cat_d8tj, cat_scra_j, catd7h_j, challenger_j,
+            crane2j, crushstn_j1, doosan_da40j, doosan_dl550, dump_trck_j1, exc_sm_j, excavator3j, excavator4j,
+            excavator6j, excavator7j, excavator_mj, gravel1j, gravel2j, gravel3j, gravel4j, gravel5j, gravel6j,
+            lh_r956j, liebherr_tlj, liebhr736j, liebhr936j, lizard_j, office_j1, office_j2, rotech_j, sand3j, sand4j,
+            sand5j, volvo_fmx_j]
+  eliarchos/out:
+    reason: >-
+      Gift of Athena (gr_olive) counts only olives and olive oil from Greek olive farms; the pack's fruit, vegetables
+      and grain there look like neither (maintainer, 2026-11-08).
+    links: [apples_j1, apples_j2, apples_jcy, barley_j1, beans_j1, c_cabbage_j1, c_carrots_j1, chesnok_j1, griby_j1,
+            luk_j1, luk_j2, maize_j, morkov_j2, pears_j1, peas_j1, plums_j1, pomidor_j1, potato_j1, potatoes2j,
+            redis_j1, sugbeet_j1, sugbeet_j2, wheat_j1, wheat_j2, wheat_j3]
+  fle/in:
+    reason: >-
+      Cattle Drive (sc_cows_to_farm) counts live cattle to Kobenhavn airport; the pack's airport cargo there (tow
+      tractors, helicopters, aircraft, equipment, forklifts) looks nothing like cattle, and a drop would strip it from
+      every airport (maintainer, 2026-11-08).
+    links: [airtrac1j, airtrac2j, airtrac3j, airtrac4j, airtrac5j, airtrac6j, airtrac7j, airtrac8j, airtrac9j,
+            alouette2j, as332j, big_cont_j, c_equip_j, c_equip_j2, c_equip_j3, crate_j, ebook_j1, equip_j1, equip_j2,
+            equip_j3, equip_j4, forklift1j, forklift2j, forklift3j, forklift4j, forklift5j, forklift6j, fotoapp_j1,
+            heli1je, heli2j, helicopter.dlc_trailers, konstr2j, linde_j, mi8j, pilatusj, ros_pantherj, smartphon_j1,
+            ssd_j1, still_r70j, sweeper_j, turbine_j2, aas72j, ah1j, ah64dj, ah6j, alouette3j, as550fennecj, as565j,
+            ch46j, ka60j, nh90j, uh1j, z10j]

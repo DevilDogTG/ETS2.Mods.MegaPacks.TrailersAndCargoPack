@@ -1,4 +1,5 @@
-# Hand-reviewed fixes of Jazzycat data bugs (ADR-0002), in megapack base_edits format:
+# Hand-reviewed fixes of Jazzycat data bugs (ADR-0002) and look-alike renames (ADR-0003, at the end), in megapack
+# base_edits format:
 #   {path: {unit name: {set: {key: value}}}}
 # `tools/cargo_rebalance.py generate` applies these before computing pay, then writes them together with the
 # rate changes into cargo/edits.yaml (the file megapack.yaml `base_edits` reads). Edit this file, not edits.yaml.
@@ -88,3 +89,19 @@ def/cargo/chme3/megar.sii:
   trailer_def.chme3.megar:
     set:
       gross_trailer_weight_limit: 66600
+
+# Not a data bug: look-alike renames (ADR-0003). Jazzycat names these "Transformer" (@@trans@@), the name of the Heavy
+# Cargo Pack's `transformat`, which the Heavy Cargo achievements count; theirs do not. They are offered all over the
+# map, so they are renamed rather than dropped. A literal name: it shows in English in every game language.
+def/cargo/trans1j.sui:
+  cargo.trans1j:
+    set:
+      name: '"Transformer (Jazzycat)"'
+def/cargo/trans2j.sui:
+  cargo.trans2j:
+    set:
+      name: '"Transformer (Jazzycat)"'
+def/cargo/inddev02j.sui:
+  cargo.inddev02j:
+    set:
+      name: '"Transformer (Jazzycat)"'

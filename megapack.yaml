@@ -29,6 +29,14 @@ exclude:
   - "*.txt"
   - "*.jpg"
   - "*.png"
+  # Company slots ETS2 achievements check stay vanilla: a Jazzycat cargo there looks like the vanilla one but does not
+  # count (ADR-0003). tools/achievement_guard.py --check fails on any undecided pack link at such a slot. A link has
+  # no city, so a drop applies to the company everywhere: eco is only in the 7 Gas must flow cities, volvo_fac only in
+  # Goteborg, scania_fac only in Sodertalje; rock_eater is in 17 cities, 4 of them Greek.
+  - "def/company/eco/in/*"                      # Gas must flow (fr_truckstop): all 8 are fuel look-alikes
+  - "def/company/volvo_fac/out/*"               # Volvo Trucks Lover (sc_volvo_cargo); also Jazzycat's blank copies
+  - "def/company/scania_fac/out/*"              #   of vanilla empty_palet/used_packag, which switched those jobs off
+  - "def/company/rock_eater/out/mram_bl_j*.sii" # Temple Worthy (gr_marble): the marble look-alikes only
 
 # The ETS2 version the pack is built for; its extraction (extract-reference, category base) supplies the company list.
 base_game:
