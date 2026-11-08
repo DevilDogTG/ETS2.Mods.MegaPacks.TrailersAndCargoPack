@@ -21,7 +21,8 @@ links are in `sources.yaml`.
 - `sources.yaml`: every origin mod: author, version, origin URL, layer, overrides
 - `lock/`: generated per-source path and hash lists (commit them; `git diff` shows upstream changes)
 - `cargo/`: cargo pay following DriveDogs Economy ([ADR-0002](docs/adr/ADR-0002-cargo-pay-follows-economy.md)).
-  `fixes.yaml` holds hand-reviewed fixes of Jazzycat data bugs; `edits.yaml` (generated: rates + fixes) is applied
+  `fixes.yaml` holds hand-reviewed fixes of Jazzycat data bugs and the look-alike renames
+  ([ADR-0003](docs/adr/ADR-0003-achievement-company-slots-stay-vanilla.md)); `edits.yaml` (generated: rates + fixes) is applied
   at build via `megapack.yaml` `base_edits`; `analysis.md`/`.tsv` and `rebalance.md` are the generated reports.
   `tools/cargo_rebalance.py` reads Economy's rules from the Economy repo (host root `@drivedogs_economy`)
 - `cargo/icons.yaml` + `tools/cargo_icons.py`: freight-market icons. Jazzycat ships none and the game finds a cargo's
@@ -30,6 +31,14 @@ links are in `sources.yaml`.
   `cargo/icons.md` lists every pick. It also writes the `.mat` the base game itself lacks (ETS2 1.62: battery,
   chem_granule, chlorine_t, sulfuric_t; `vanilla:` in `icons.yaml`). Rerun after a source update, a game update or a
   change to `icons.yaml`
+- `cargo/achievements.yaml` + `tools/achievement_guard.py`: keeps the company slots ETS2 achievements check vanilla
+  ([ADR-0003](docs/adr/ADR-0003-achievement-company-slots-stay-vanilla.md)). A Jazzycat cargo at, say, the Volvo
+  Truck Factory looks like vanilla Volvo Trucks but does not count for Volvo Trucks Lover. The tool reads the base
+  game's `def/achievements*.sii`, finds every achievement that counts a cargo from or to a company, and checks each
+  pack link there: `megapack.yaml` `exclude` drops it, or `achievements.yaml` `keep` lists it with a reason.
+  `cargo/achievements.md` is the report; `--check` fails on an undecided link, a stale `keep` entry, a pack cargo
+  that replaces one an achievement names, or one named like the cargo of an achievement without a company (Jazzycat's
+  "Transformer" vs the Heavy Cargo Pack's, renamed in `fixes.yaml`). Rerun after a source update or a game update
 - `tools/fix_models.py`: fixes misnamed locators in Jazzycat models (flatbed4's body locator is named `hook` in the
   main pack, so its cargo had nowhere to attach) by renaming only that locator in the source model, written into
   `overrides/`. `--check` verifies the written models. Rerun after a source update
@@ -50,7 +59,8 @@ Uses the `scs-mod-developer` profile's `megapack` skill:
 3. `python tools/cargo_rebalance.py analyze` (report) and `generate` (writes `cargo/edits.yaml`); rerun after
    a source update, a change to `cargo/fixes.yaml` or a rule change in DriveDogs Economy.
 4. `python tools/cargo_icons.py` refreshes the cargo icon aliases in `overrides/`; `python tools/fix_models.py`
-   the fixed models.
+   the fixed models; `python tools/achievement_guard.py` checks the achievement company slots (a new Jazzycat link
+   there fails until it is excluded or kept).
 5. `megapack check` reports stale locks, unresolved collisions and edits that no longer apply.
 6. `megapack build` writes `output/local/<name>_partN_v<version>.scs` (`package.versioned_filenames`, the
    DriveDogs naming convention; one archive since 1.1.0, ~110k entries, loads clean in game).
